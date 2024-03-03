@@ -112,10 +112,10 @@ jobs:
             echo 'src-git routing https://github.com/coolsnowwolf/routing^160eae1216c166153f1c0d303f41f33ca0032c2c' >> feeds.conf.default
 
             #kenzok8的small-package库插入到第一行，回退到2024.01.18避免ssr-plus编译失败
-            sed -i '1i\src-git smpackage https:github.com/kenzok8/small-package.git^154af743a2d695030591c1d69f65a710628d8555' feeds.conf.default
+            sed -i '1i\src-git smpackage https://github.com/kenzok8/small-package^154af743a2d695030591c1d69f65a710628d8555' feeds.conf.default
           else
             #只有AX6-lede回退
-            sed -i '1i\src-git smpackage https:github.com/kenzok8/small-package.git' feeds.conf.default
+            sed -i '1i\src-git smpackage https://github.com/kenzok8/small-package' feeds.conf.default
           fi
       - name: Update Feeds
         run: |
