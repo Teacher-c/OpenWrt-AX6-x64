@@ -123,19 +123,19 @@ jobs:
 
       - name: Reset Feeds lede luci
         run: |
-          cd ./feeds/luci
+          cd ./owrt/feeds/luci
 
           git reset --hard f45ed56c5a6938f4a585b21596decfa905bc62dc
 
       - name: Reset Feeds lede packages
         run: |
-          cd ./feeds/packages
+          cd ./owrt/feeds/packages
 
           git reset --hard d930ab31586ea9fc40e871786c027120fc57c716
 
       - name: Reset Feeds kenzok8 smpackage
         run: |
-          cd ./feeds/smpackage
+          cd ./owrt/feeds/smpackage
 
           git reset --hard 154af743a2d695030591c1d69f65a710628d8555
           
