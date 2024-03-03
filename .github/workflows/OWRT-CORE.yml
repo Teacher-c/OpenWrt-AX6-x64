@@ -97,7 +97,7 @@ jobs:
         run: |
           cd ./owrt
           
-          if [[ $OWRT_URL == *"lede"* ]] ; then
+          if [[ "$OWRT_TARGET" == "Redmi-AX6" && "$OWRT_URL" == *"lede"* ]]; then
             #编辑lede库源feeds.conf.default文件，删除lede的packages、routing、luci源，下面重新添加方便回滚版本
             #sed -i '1,2,3d' feeds.conf.default
             sed -i '/coolsnowwolf/d' feeds.conf.default
@@ -114,7 +114,7 @@ jobs:
             #kenzok8的small-package库插入到第一行，回退到2024.01.18避免ssr-plus编译失败
             sed -i '1i\src-git smpackage https:github.com/kenzok8/small-package.git^154af743a2d695030591c1d69f65a710628d8555' feeds.conf.default
           else
-            #immortalwrt不回退
+            #只有AX6-lede回退
             sed -i '1i\src-git smpackage https:github.com/kenzok8/small-package.git' feeds.conf.default
           fi
       - name: Update Feeds
