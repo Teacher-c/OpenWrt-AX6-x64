@@ -82,8 +82,7 @@ jobs:
       
       - name: Fix AX6
         run: |
-          #if [ "$OWRT_TARGET" == "Redmi-AX6" ]; then
-          if [[ $OWRT_URL == *"lede"* ]] ; then
+          if [[ "$OWRT_TARGET" == "Redmi-AX6" && "$OWRT_URL" == *"lede"* ]]; then
             cd ./owrt
             # 因AX6无线驱动问题，暂时维持源码版本在20230501
             git reset --hard 26f3634631244eedfbdfd61ea6cc3a2d7f5d896f
