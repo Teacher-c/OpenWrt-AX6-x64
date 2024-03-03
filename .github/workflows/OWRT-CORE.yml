@@ -97,7 +97,7 @@ jobs:
         run: |
           cd ./owrt
           
-          #编辑lede库源feeds.conf.default文件，删除lede的packages和luci源，下面重新添加方便回滚版本
+          #编辑lede库源feeds.conf.default文件，删除lede的packages、routing、luci源，下面重新添加方便回滚版本
           #sed -i '1,2,3d' feeds.conf.default
           sed -i '/packages\|luci\|routing/d' feeds.conf.default
 
