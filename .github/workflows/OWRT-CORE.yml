@@ -97,25 +97,26 @@ jobs:
         run: |
           cd ./owrt
           
-          #编辑lede库源feeds.conf.default文件，删除lede的packages、routing、luci源，下面重新添加方便回滚版本
-          #sed -i '1,2,3d' feeds.conf.default
-          sed -i '/packages\|luci\|routing/d' feeds.conf.default
+          if [ "$OWRT_URL" == "https://github.com/coolsnowwolf/lede.git" ]; then
+            #编辑lede库源feeds.conf.default文件，删除lede的packages、routing、luci源，下面重新添加方便回滚版本
+            #sed -i '1,2,3d' feeds.conf.default
+            sed -i '/coolsnowwolf/d' feeds.conf.default
 
-          #添加kenzok8/small-package回退到2024.01.18避免ssr-plus编译失败
-          echo 'src-git smpackage https://github.com/kenzok8/small-package^154af743a2d695030591c1d69f65a710628d8555' >> feeds.conf.default
+            #重新添加lede的packages,回退到2024.01.18
+            echo 'src-git packages https://github.com/coolsnowwolf/packages^d930ab31586ea9fc40e871786c027120fc57c716' >> feeds.conf.default
 
-          #重新添加lede的packages,回退到2024.01.18
-          #echo 'src-git packages https://github.com/coolsnowwolf/packages^d930ab31586ea9fc40e871786c027120fc57c716' >> feeds.conf.default
+            #重新添加lede的luci，回退到2024.01.15
+            echo 'src-git luci https://github.com/coolsnowwolf/luci^f45ed56c5a6938f4a585b21596decfa905bc62dc' >> feeds.conf.default
 
-          #重新添加lede的luci，回退到2024.01.15
-          echo 'src-git luci https://github.com/coolsnowwolf/luci^f45ed56c5a6938f4a585b21596decfa905bc62dc' >> feeds.conf.default
+            #重新添加lede的routing，回退到2022.12.15
+            echo 'src-git routing https://github.com/coolsnowwolf/routing^160eae1216c166153f1c0d303f41f33ca0032c2c' >> feeds.conf.default
 
-          #重新添加lede的routing，回退到2022.12.15
-          echo 'src-git routing https://github.com/coolsnowwolf/routing^160eae1216c166153f1c0d303f41f33ca0032c2c' >> feeds.conf.default
-
-          #kenzok8库插入到第一行
-          #sed -i '1i\src-git smpackage https:github.com/kenzok8/small-package^154af743a2d695030591c1d69f65a710628d8555' feeds.conf.default
-          
+            #kenzok8的small-package库插入到第一行，回退到2024.01.18避免ssr-plus编译失败
+            sed -i '1i\src-git smpackage https:github.com/kenzok8/small-package^154af743a2d695030591c1d69f65a710628d8555' feeds.conf.default
+          else
+            #immortalwrt不回退
+            sed -i '1i\src-git smpackage https:github.com/kenzok8/small-package' feeds.conf.default
+          fi
       - name: Update Feeds
         run: |
           cd ./owrt
