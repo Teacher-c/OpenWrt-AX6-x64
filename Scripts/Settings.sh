@@ -18,6 +18,7 @@ rm -rf $(find ./feeds/packages/ -type d -regex ".*\(argon\|design\).*")
 rm -rf $(find ./feeds/smpackage/ -type d -regex ".*\(argon\|design\|openclash\).*")
 
 if [[ "$OWRT_TARGET" == "Redmi-AX6" && "$OWRT_URL" == *"NSS"* ]]; then
+  #删除冲突插件
   rm -rf feeds/luci/modules/luci-base
   rm -rf feeds/luci/modules/luci-mod-status
   rm -rf feeds/packages/utils/coremark
@@ -28,8 +29,20 @@ if [[ "$OWRT_TARGET" == "Redmi-AX6" && "$OWRT_URL" == *"NSS"* ]]; then
   svn export https://github.com/immortalwrt/luci/branches/master/modules/luci-base feeds/luci/modules/luci-base
   svn export https://github.com/immortalwrt/luci/branches/master/modules/luci-mod-status feeds/luci/modules/luci-mod-status
 
-#删除作者库自定义插件
+  #删除作者库自定义插件
   rm -rf $(find ./package/ -type d -regex ".*\(new\).*")
+
+  #删除作者config文件对应配置
+  sed -i '/cpufreq/d' ./AX6.config
+  sed -i '/argon-config/d' ./AX6.config
+  sed -i '/openclash/d' ./AX6.config
+  sed -i '/vlmcsd/d' ./AX6.config
+  sed -i '/theme-bootstrap/d' ./AX6.config
+  sed -i '/ddns/d' ./AX6.config
+  sed -i '/coremark/d' ./AX6.config
+  sed -i '/v2ray/d' ./AX6.config
+  sed -i '/theme-argon/d' ./AX6.config
+  
 fi
 
 #small-package推荐删除防止与lede库冲突
