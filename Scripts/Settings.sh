@@ -18,21 +18,19 @@ rm -rf $(find ./feeds/packages/ -type d -regex ".*\(argon\|design\).*")
 rm -rf $(find ./feeds/smpackage/ -type d -regex ".*\(argon\|design\|openclash\).*")
 
 if [[ "$OWRT_TARGET" == "Redmi-AX6" && "$OWRT_URL" == *"NSS"* ]]; then
-            rm -rf feeds/luci/modules/luci-base
-            rm -rf feeds/luci/modules/luci-mod-status
-            rm -rf feeds/packages/utils/coremark
-            rm -rf feeds/packages/net/v2ray-geodata
-            rm -rf feeds/nss-packages/utils/mhz
+  rm -rf feeds/luci/modules/luci-base
+  rm -rf feeds/luci/modules/luci-mod-status
+  rm -rf feeds/packages/utils/coremark
+  rm -rf feeds/packages/net/v2ray-geodata
+  rm -rf feeds/nss-packages/utils/mhz
+ 
+  #替换luci-base和luci-mod-status
+  svn export https://github.com/immortalwrt/luci/branches/master/modules/luci-base feeds/luci/modules/luci-base
+  svn export https://github.com/immortalwrt/luci/branches/master/modules/luci-mod-status feeds/luci/modules/luci-mod-status
 
-            #替换luci-base和luci-mod-status
-            svn export https://github.com/immortalwrt/luci/branches/master/modules/luci-base feeds/luci/modules/luci-base
-            svn export https://github.com/immortalwrt/luci/branches/master/modules/luci-mod-status feeds/luci/modules/luci-mod-status
-
-            #删除作者库自定义插件
-            rm -rf $(find ./package/ -type d -regex ".*\(new\).*")
-          else
-            echo 'Fix AX6 Skip!'
-          fi
+#删除作者库自定义插件
+  rm -rf $(find ./package/ -type d -regex ".*\(new\).*")
+fi
 
 #small-package推荐删除防止与lede库冲突
 rm -rf feeds/smpackage/{base-files,dnsmasq,firewall*,fullconenat,libnftnl,nftables,ppp,opkg,ucl,upx,vsftpd-alt,miniupnpd-iptables,wireless-regdb}
