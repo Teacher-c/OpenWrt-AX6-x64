@@ -32,7 +32,7 @@ if [[ "$OWRT_TARGET" == "Redmi-AX6" && "$OWRT_URL" == *"NSS"* ]]; then
   rm -rf ./luci_tmp
 
   #删除作者库自定义插件
-  #rm -rf $(find ./package/ -type d -regex ".*\(new\).*")
+  rm -rf $(find ./package/new -type d -regex ".*\(openclash\|argon\|vlmcsd\|cpufreq\|coremark\).*")
 
   #删除作者config文件对应配置
   sed -i '/cpufreq/d' ./AX6.config
@@ -42,8 +42,9 @@ if [[ "$OWRT_TARGET" == "Redmi-AX6" && "$OWRT_URL" == *"NSS"* ]]; then
   sed -i '/theme-bootstrap/d' ./AX6.config
   sed -i '/ddns/d' ./AX6.config
   sed -i '/coremark/d' ./AX6.config
-  sed -i '/v2ray/d' ./AX6.config
+  #sed -i '/v2ray/d' ./AX6.config
   sed -i '/theme-argon/d' ./AX6.config
+  sed -i '/mosdns/d' ./AX6.config
   
 fi
 
