@@ -27,8 +27,8 @@ if [[ "$OWRT_TARGET" == "Redmi-AX6" && "$OWRT_URL" == *"NSS"* ]]; then
  
   #替换luci-base和luci-mod-status
   git clone https://github.com/immortalwrt/luci.git luci_tmp
-  cp ./luci_tmp/modules/luci-base feeds/luci/modules/luci-base
-  cp ./luci_tmp/modules/luci-mod-status feeds/luci/modules/luci-mod-status
+  cp -rf ./luci_tmp/modules/luci-base feeds/luci/modules/
+  cp -rf ./luci_tmp/modules/luci-mod-status feeds/luci/modules/
   rm -rf ./luci_tmp
 
   #删除作者库自定义插件
