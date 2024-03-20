@@ -26,8 +26,8 @@ if [[ "$OWRT_TARGET" == "Redmi-AX6" && "$OWRT_URL" == *"NSS"* ]]; then
   rm -rf feeds/nss-packages/utils/mhz
  
   #替换luci-base和luci-mod-status
-  svn export https://github.com/immortalwrt/luci/branches/master/modules/luci-base feeds/luci/modules/luci-base
-  svn export https://github.com/immortalwrt/luci/branches/master/modules/luci-mod-status feeds/luci/modules/luci-mod-status
+  svn export https://github.com/immortalwrt/luci/tree/master/modules/luci-base feeds/luci/modules/luci-base
+  svn export https://github.com/immortalwrt/luci/tree/master/modules/luci-mod-status feeds/luci/modules/luci-mod-status
 
   #删除作者库自定义插件
   rm -rf $(find ./package/ -type d -regex ".*\(new\).*")
