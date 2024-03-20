@@ -17,7 +17,7 @@ rm -rf $(find ./feeds/luci/ -type d -regex ".*\(argon\|design\).*")
 rm -rf $(find ./feeds/packages/ -type d -regex ".*\(argon\|design\).*")
 rm -rf $(find ./feeds/smpackage/ -type d -regex ".*\(argon\|design\|openclash\).*")
 
-if [[ "$OWRT_TARGET" == "Redmi-AX6" && "$OWRT_URL" == *"immortalwrt"* ]]; then
+if [[ "$OWRT_TARGET" == "Redmi-AX6" && "$OWRT_URL" == *"NSS"* ]]; then
             rm -rf feeds/luci/modules/luci-base
             rm -rf feeds/luci/modules/luci-mod-status
             rm -rf feeds/packages/utils/coremark
