@@ -147,17 +147,6 @@ jobs:
 
           rm -rf ./tmp* ./.config*
           
-          if [[ "$OWRT_TARGET" == "Redmi-AX6" && "$OWRT_URL" == *"NSS"* ]]; then
-            sed -i '/cpufreq/d' AX6.config
-            sed -i '/argon-config/d' AX6.config
-            sed -i '/openclash/d' AX6.config
-            sed -i '/vlmcsd/d' AX6.config
-            sed -i '/theme-bootstrap/d' AX6.config
-            sed -i '/ddns/d' AX6.config
-            sed -i '/coremark/d' AX6.config
-            sed -i '/v2ray/d' AX6.config
-            sed -i '/theme-argon/d' AX6.config
-          fi
           cat $GITHUB_WORKSPACE/Config/$OWRT_TARGET.txt $GITHUB_WORKSPACE/Config/General.txt >> .config
 
           $GITHUB_WORKSPACE/Scripts/Extras.sh
