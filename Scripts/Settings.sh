@@ -11,13 +11,25 @@
 #rm -rf feeds/packages/lang/golang
 #git clone https://github.com/sbwml/packages_lang_golang -b 22.x feeds/packages/lang/golang
 
-#不知道哪里来的阿里云盘？
-#rm -rf package/feeds/packages/aliyundrive-webdav
 
 #删除冲突插件
 rm -rf $(find ./feeds/luci/ -type d -regex ".*\(argon\|design\).*")
 rm -rf $(find ./feeds/packages/ -type d -regex ".*\(argon\|design\).*")
 rm -rf $(find ./feeds/smpackage/ -type d -regex ".*\(argon\|design\|openclash\).*")
+
+if [[ "$OWRT_TARGET" == "Redmi-AX6" && "$OWRT_URL" == *"immortalwrt"* ]]; then
+            rm -rf feeds/luci/modules/luci-base
+            rm -rf feeds/luci/modules/luci-mod-status
+            rm -rf feeds/packages/utils/coremark
+            rm -rf feeds/packages/net/v2ray-geodata
+            rm -rf feeds/nss-packages/utils/mhz
+
+            #替换luci-base和luci-mod-status
+            svn export https://github.com/immortalwrt/luci/branches/master/modules/luci-base feeds/luci/modules/luci-base
+            svn export https://github.com/immortalwrt/luci/branches/master/modules/luci-mod-status feeds/luci/modules/luci-mod-status
+          else
+            echo 'Fix AX6 Skip!'
+          fi
 
 #small-package推荐删除防止与lede库冲突
 rm -rf feeds/smpackage/{base-files,dnsmasq,firewall*,fullconenat,libnftnl,nftables,ppp,opkg,ucl,upx,vsftpd-alt,miniupnpd-iptables,wireless-regdb}
