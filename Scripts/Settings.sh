@@ -18,19 +18,22 @@ rm -rf $(find ./feeds/packages/ -type d -regex ".*\(argon\|design\).*")
 rm -rf $(find ./feeds/smpackage/ -type d -regex ".*\(argon\|design\|openclash\).*")
 
 if [[ "$OWRT_TARGET" == "Redmi-AX6" && "$OWRT_URL" == *"NSS"* ]]; then
-  #删除冲突插件
+  
+  #删除openwrt官方luci-base和luci-mod-status
   rm -rf feeds/luci/modules/luci-base
   rm -rf feeds/luci/modules/luci-mod-status
-  rm -rf feeds/packages/utils/coremark
-  rm -rf feeds/packages/net/v2ray-geodata
-  #rm -rf feeds/nss-packages/utils/mhz
- 
-  #替换luci-base和luci-mod-status
+  
+  #把immortalwrt luci-base和luci-mod-status拷回去
   git clone https://github.com/immortalwrt/luci.git luci_tmp
   cp -rf ./luci_tmp/modules/luci-base feeds/luci/modules/
   cp -rf ./luci_tmp/modules/luci-mod-status feeds/luci/modules/
   rm -rf ./luci_tmp
 
+  #尝试添加mhz
+  git clone https://github.com/immortalwrt/immortalwrt.git immortalwrt_tmp
+  cp -rf ./immortalwrt_tmp/package/utils/mhz package/utils/
+  rm -rf ./immortalwrt_tmp
+  
   #删除作者库自定义插件
   rm -rf $(find ./package/new/ -type d -regex ".*\(openclash\|argon\|vlmcsd\|cpufreq\|coremark\|v2ray\).*")
 
