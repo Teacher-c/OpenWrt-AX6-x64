@@ -153,7 +153,8 @@ jobs:
             
           else
           
-            cat ./AX6.config $GITHUB_WORKSPACE/Config/App.txt >> .config
+            cat $GITHUB_WORKSPACE/Config/App.txt >> AX6.config
+            cp AX6.config .config
             
           fi
 
