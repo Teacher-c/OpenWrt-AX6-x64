@@ -40,16 +40,16 @@ if [[ "$OWRT_TARGET" == "Redmi-AX6" && "$OWRT_URL" == *"NSS"* ]]; then
   #rm -rf $(find ./package/new/ -type d -regex ".*\(openclash\|argon\|vlmcsd\|cpufreq\|coremark\|v2ray\).*")
 
   #删除作者config文件对应配置
-  #sed -i '/cpufreq/d' AX6.config
-  #sed -i '/argon-config/d' AX6.config
-  #sed -i '/openclash/d' AX6.config
-  #sed -i '/vlmcsd/d' AX6.config
-  #sed -i '/theme-bootstrap/d' AX6.config
-  #sed -i '/ddns/d' AX6.config
-  #sed -i '/coremark/d' AX6.config
-  #sed -i '/COREMARK/d' AX6.config
-  #sed -i '/theme-argon/d' AX6.config
-  #sed -i '/mosdns/d' AX6.config
+  sed -i '/cpufreq/d' AX6.config
+  sed -i '/argon-config/d' AX6.config
+  sed -i '/openclash/d' AX6.config
+  sed -i '/vlmcsd/d' AX6.config
+  sed -i '/theme-bootstrap/d' AX6.config
+  sed -i '/ddns/d' AX6.config
+  sed -i '/coremark/d' AX6.config
+  sed -i '/COREMARK/d' AX6.config
+  sed -i '/theme-argon/d' AX6.config
+  sed -i '/mosdns/d' AX6.config
   
 fi
 
