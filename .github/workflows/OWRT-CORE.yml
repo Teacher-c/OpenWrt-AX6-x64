@@ -149,11 +149,11 @@ jobs:
 
           if [[ "$OWRT_TARGET" == "Redmi-AX6" && "$OWRT_URL" == *"lede"* ]]; then
           
-            cat $GITHUB_WORKSPACE/Config/$OWRT_TARGET.txt $GITHUB_WORKSPACE/Config/General.txt >> .config
+            cat $GITHUB_WORKSPACE/Config/$OWRT_TARGET.txt $GITHUB_WORKSPACE/Config/General.txt $GITHUB_WORKSPACE/Config/APP.txt >> .config
             
           else
           
-            cat ./AX6.config $GITHUB_WORKSPACE/Config/General.txt >> .config
+            cat ./AX6.config $GITHUB_WORKSPACE/Config/App.txt >> .config
             
           fi
 
