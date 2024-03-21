@@ -117,6 +117,7 @@ jobs:
           else
             #只有AX6-lede回退
             #sed -i '1i\src-git smpackage https://github.com/kenzok8/small-package' feeds.conf.default
+            echo 'Skip!'
           fi
       - name: Update Feeds
         run: |
