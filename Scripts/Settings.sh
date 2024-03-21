@@ -29,25 +29,23 @@ if [[ "$OWRT_TARGET" == "Redmi-AX6" && "$OWRT_URL" == *"NSS"* ]]; then
   cp -rf luci_tmp/modules/luci-mod-status feeds/luci/modules/
   rm -rf luci_tmp
 
-  #尝试添加mhz
-  #git clone https://github.com/immortalwrt/immortalwrt.git immortalwrt_tmp
-  #cp -rf immortalwrt_tmp/package/utils/mhz package/utils/
-  #rm -rf immortalwrt_tmp
+  #删除mhz
+  rm -rf feeds/nss-packages/utils/mhz
   
   #删除作者库自定义插件
-  rm -rf $(find ./package/new/ -type d -regex ".*\(openclash\|argon\|vlmcsd\|cpufreq\|coremark\|v2ray\).*")
+  #rm -rf $(find ./package/new/ -type d -regex ".*\(openclash\|argon\|vlmcsd\|cpufreq\|coremark\|v2ray\).*")
 
   #删除作者config文件对应配置
-  sed -i '/cpufreq/d' AX6.config
-  sed -i '/argon-config/d' AX6.config
-  sed -i '/openclash/d' AX6.config
-  sed -i '/vlmcsd/d' AX6.config
-  sed -i '/theme-bootstrap/d' AX6.config
-  sed -i '/ddns/d' AX6.config
-  sed -i '/coremark/d' AX6.config
-  sed -i '/v2ray/d' AX6.config
-  sed -i '/theme-argon/d' AX6.config
-  sed -i '/mosdns/d' AX6.config
+  #sed -i '/cpufreq/d' AX6.config
+  #sed -i '/argon-config/d' AX6.config
+  #sed -i '/openclash/d' AX6.config
+  #sed -i '/vlmcsd/d' AX6.config
+  #sed -i '/theme-bootstrap/d' AX6.config
+  #sed -i '/ddns/d' AX6.config
+  #sed -i '/coremark/d' AX6.config
+  #sed -i '/v2ray/d' AX6.config
+  #sed -i '/theme-argon/d' AX6.config
+  #sed -i '/mosdns/d' AX6.config
   
 fi
 
@@ -70,6 +68,6 @@ if [[ $OWRT_URL == *"lede"* ]] ; then
   sed -i 's/os.date()/os.date("%Y-%m-%d %H:%M:%S %A")/g' $(find ./package/*/autocore/files/ -type f -name "index.htm")
 fi
 
-#rm -rf ./tmp
-#./scripts/feeds update -a
-#./scripts/feeds install -a
+rm -rf ./tmp
+./scripts/feeds update -a
+./scripts/feeds install -a
