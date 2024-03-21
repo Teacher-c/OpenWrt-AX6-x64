@@ -24,10 +24,10 @@ if [[ "$OWRT_TARGET" == "Redmi-AX6" && "$OWRT_URL" == *"NSS"* ]]; then
   rm -rf feeds/luci/modules/luci-mod-status
   
   #把immortalwrt luci-base和luci-mod-status拷回去
-  git clone https://github.com/immortalwrt/luci.git luci_tmp
-  cp -rf luci_tmp/modules/luci-base feeds/luci/modules/
-  cp -rf luci_tmp/modules/luci-mod-status feeds/luci/modules/
-  rm -rf luci_tmp
+  git clone https://github.com/immortalwrt/luci.git immortalwr_luci
+  cp -rf immortalwr_luci/modules/luci-base feeds/luci/modules/
+  cp -rf immortalwr_luci/modules/luci-mod-status feeds/luci/modules/
+  rm -rf immortalwr_luci
 
   #删除mhz
   rm -rf feeds/nss-packages/utils/mhz
