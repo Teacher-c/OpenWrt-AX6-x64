@@ -31,6 +31,10 @@ if [[ "$OWRT_TARGET" == "Redmi-AX6" && "$OWRT_URL" == *"NSS"* ]]; then
 
   #删除mhz
   rm -rf feeds/nss-packages/utils/mhz
+
+  #删除冲突插件
+  rm -rf feeds/packages/net/v2ray-geodata
+  rm -rf feeds/packages/utils/coremark
   
   #删除作者库自定义插件
   #rm -rf $(find ./package/new/ -type d -regex ".*\(openclash\|argon\|vlmcsd\|cpufreq\|coremark\|v2ray\).*")
