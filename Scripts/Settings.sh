@@ -23,7 +23,7 @@ if [[ "$OWRT_TARGET" == "Redmi-AX6" && "$OWRT_URL" == *"NSS"* ]]; then
   rm -rf feeds/luci/modules/luci-mod-status
   rm -rf feeds/packages/utils/coremark
   rm -rf feeds/packages/net/v2ray-geodata
-  rm -rf feeds/nss-packages/utils/mhz
+  #rm -rf feeds/nss-packages/utils/mhz
  
   #替换luci-base和luci-mod-status
   git clone https://github.com/immortalwrt/luci.git luci_tmp
@@ -67,6 +67,6 @@ if [[ $OWRT_URL == *"lede"* ]] ; then
   sed -i 's/os.date()/os.date("%Y-%m-%d %H:%M:%S %A")/g' $(find ./package/*/autocore/files/ -type f -name "index.htm")
 fi
 
-rm -rf ./tmp
-./scripts/feeds update -a
-./scripts/feeds install -a
+#rm -rf ./tmp
+#./scripts/feeds update -a
+#./scripts/feeds install -a
