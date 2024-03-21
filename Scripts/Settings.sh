@@ -39,10 +39,10 @@ if [[ "$OWRT_TARGET" == "Redmi-AX6" && "$OWRT_URL" == *"NSS"* ]]; then
   git clone --depth=1 https://github.com/fw876/helloworld.git package/new/helloworld
 
   #添加luci-app-accesscontrol和luci-app-autoreboot
-  git clone https://github.com/coolsnowwolf/luci.git lede_luci
-  cp -rf lede_luci/applications/luci-app-accesscontrol package/new/
-  cp -rf lede_luci/applications/luci-app-autoreboot package/new/
-  rm -rf lede_luci
+  git clone https://github.com/coolsnowwolf/luci.git feeds/lede_luci
+  #cp -rf lede_luci/applications/luci-app-accesscontrol package/new/
+  #cp -rf lede_luci/applications/luci-app-autoreboot package/new/
+  #rm -rf lede_luci
 
   #删除作者config文件对应配置
   sed -i '/cpufreq/d' AX6.config
