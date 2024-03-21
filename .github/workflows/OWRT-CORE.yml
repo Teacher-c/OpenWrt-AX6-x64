@@ -115,7 +115,8 @@ jobs:
             sed -i '1i\src-git smpackage https://github.com/kenzok8/small-package^154af743a2d695030591c1d69f65a710628d8555' feeds.conf.default
             #sed -i '1i\src-git smpackage https://github.com/kenzok8/small-package' feeds.conf.default
           else
-            echo 'src-git smpackage https://github.com/kenzok8/small-package' >> feeds.conf.default
+            #echo 'src-git smpackage https://github.com/kenzok8/small-package' >> feeds.conf.default
+            echo 'Skip!'
           fi
       - name: Update Feeds
         run: |
@@ -152,7 +153,7 @@ jobs:
             
           else
           
-            cat $GITHUB_WORKSPACE/Config/App.txt >> AX6.config
+            #cat $GITHUB_WORKSPACE/Config/App.txt >> AX6.config
             cp AX6.config .config
             
           fi
