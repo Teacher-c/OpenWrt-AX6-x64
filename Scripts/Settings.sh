@@ -39,7 +39,7 @@ if [[ "$OWRT_TARGET" == "Redmi-AX6" && "$OWRT_URL" == *"NSS"* ]]; then
   cp -rf lede_luci/applications/luci-app-autoreboot package/new/
   cp -rf lede_luci/applications/luci-app-zerotier package/new/
   cp -rf lede_luci/applications/luci-app-wol package/new/
-  cp -rf lede_luci/applications/uci-app-mosdns package/new/
+  cp -rf lede_luci/applications/luci-app-mosdns package/new/
   rm -rf lede_luci
   
   #删除作者config文件对应配置
@@ -81,6 +81,5 @@ if [[ $OWRT_URL == *"lede"* ]] ; then
   sed -i 's/os.date()/os.date("%Y-%m-%d %H:%M:%S %A")/g' $(find ./package/*/autocore/files/ -type f -name "index.htm")
 fi
 
-#rm -rf ./tmp
 ./scripts/feeds update -a
 ./scripts/feeds install -a
