@@ -47,15 +47,16 @@ else
 
   #如果引入smpackage库，则删除冲突插件和argon主题
   rm -rf $(find ./feeds/smpackage/ -type d -regex ".*\(argon\|openclash\).*")
-
-  #small-package推荐删除防止与lede库冲突
-  rm -rf feeds/smpackage/{base-files,dnsmasq,firewall*,fullconenat,libnftnl,nftables,ppp,opkg,ucl,upx,vsftpd-alt,miniupnpd-iptables,wireless-regdb}
-
   
   #修复SSR-Plus shadowsocksr-libev libopenssl-legacy 依赖错误问题。
   #因已回退插件库，不需要修复。
   #sed -i 's/ +libopenssl-legacy//g' feeds/smpackage/shadowsocksr-libev/Makefile
   
+fi
+
+if [[ "$OWRT_URL" == *"lede"* ]]; then
+  #small-package推荐删除防止与lede库冲突
+  rm -rf feeds/smpackage/{base-files,dnsmasq,firewall*,fullconenat,libnftnl,nftables,ppp,opkg,ucl,upx,vsftpd-alt,miniupnpd-iptables,wireless-regdb}
 fi
 
 #删除官方和第三方仓库argon主题
