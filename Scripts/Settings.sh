@@ -55,16 +55,19 @@ if [[ "$OWRT_TARGET" == "Redmi-AX6" && "$OWRT_URL" == *"NSS"* ]]; then
   sed -i '/theme-argon/d' AX6.config
   sed -i '/mosdns/d' AX6.config
 
-  
-fi
+else
 
-#删除冲突插件
-rm -rf $(find ./feeds/luci/ -type d -regex ".*\(argon\|design\).*")
-rm -rf $(find ./feeds/packages/ -type d -regex ".*\(argon\|design\).*")
-rm -rf $(find ./feeds/smpackage/ -type d -regex ".*\(argon\|design\|openclash\).*")
+#如果引入smpackage库，则删除冲突插件和argon主题
+rm -rf $(find ./feeds/smpackage/ -type d -regex ".*\(argon\|openclash\).*")
 
 #small-package推荐删除防止与lede库冲突
 rm -rf feeds/smpackage/{base-files,dnsmasq,firewall*,fullconenat,libnftnl,nftables,ppp,opkg,ucl,upx,vsftpd-alt,miniupnpd-iptables,wireless-regdb}
+  
+fi
+
+#删除官方和第三方仓库argon主题
+
+rm -rf $(find ./feeds/luci/ -type d -regex ".*\(argon\).*")
 
 #修改默认主题
 sed -i "s/luci-theme-bootstrap/luci-theme-$OWRT_THEME/g" $(find ./feeds/luci/collections/ -type f -name "Makefile")
