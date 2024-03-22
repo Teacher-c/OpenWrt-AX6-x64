@@ -78,6 +78,6 @@ if [[ $OWRT_URL == *"lede"* ]] ; then
   sed -i 's/os.date()/os.date("%Y-%m-%d %H:%M:%S %A")/g' $(find ./package/*/autocore/files/ -type f -name "index.htm")
 fi
 
-rm -rf ./tmp
+#rm -rf ./tmp
 ./scripts/feeds update -a
 ./scripts/feeds install -a
