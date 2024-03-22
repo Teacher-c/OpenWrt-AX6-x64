@@ -33,11 +33,14 @@ if [[ "$OWRT_TARGET" == "Redmi-AX6" && "$OWRT_URL" == *"NSS"* ]]; then
   #添加hello world
   git clone --depth=1 https://github.com/fw876/helloworld.git package/new/helloworld
 
-  #添加luci-app-accesscontrol和luci-app-autoreboot
+  #添加lede库luci插件
   git clone https://github.com/coolsnowwolf/luci.git lede_luci
   cp -rf lede_luci/applications/luci-app-accesscontrol package/new/
   cp -rf lede_luci/applications/luci-app-autoreboot package/new/
   cp -rf lede_luci/applications/luci-app-zerotier package/new/
+  cp -rf lede_luci/applications/luci-app-filetransfer package/new/
+  
+  删除lede库
   rm -rf lede_luci
   
   #删除作者config文件对应配置
