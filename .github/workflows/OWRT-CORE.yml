@@ -89,6 +89,7 @@ jobs:
             # Patch
             #cp -rf $GITHUB_WORKSPACE/general/AX6/target/linux/ipq807x/image/generic.mk target/linux/ipq807x/image/
             echo 'Fix AX6 Done!'
+            #测试回到2022.07.15
             git reset --hard 7dd7a8f966491d4850289b2ee35bfd5373e1ddf9
           else
             echo 'Fix AX6 Skip!'
