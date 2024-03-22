@@ -1,17 +1,5 @@
 #!/bin/bash
 
-#SSR-Plus
-#修复 shadowsocksr-libev libopenssl-legacy 依赖问题。
-#因已回退插件库，不需要修复。
-#sed -i 's/ +libopenssl-legacy//g' feeds/smpackage/shadowsocksr-libev/Makefile
-
-#passawall
-#编译新版Sing-box和hysteria，需golang版本1.20或者以上版本
-#lede仓库已是1.20以上版本
-#rm -rf feeds/packages/lang/golang
-#git clone https://github.com/sbwml/packages_lang_golang -b 22.x feeds/packages/lang/golang
-
-
 if [[ "$OWRT_TARGET" == "Redmi-AX6" && "$OWRT_URL" == *"NSS"* ]]; then
   
   #删除openwrt官方luci-base和luci-mod-status
@@ -57,11 +45,16 @@ if [[ "$OWRT_TARGET" == "Redmi-AX6" && "$OWRT_URL" == *"NSS"* ]]; then
 
 else
 
-#如果引入smpackage库，则删除冲突插件和argon主题
-rm -rf $(find ./feeds/smpackage/ -type d -regex ".*\(argon\|openclash\).*")
+  #如果引入smpackage库，则删除冲突插件和argon主题
+  rm -rf $(find ./feeds/smpackage/ -type d -regex ".*\(argon\|openclash\).*")
 
-#small-package推荐删除防止与lede库冲突
-rm -rf feeds/smpackage/{base-files,dnsmasq,firewall*,fullconenat,libnftnl,nftables,ppp,opkg,ucl,upx,vsftpd-alt,miniupnpd-iptables,wireless-regdb}
+  #small-package推荐删除防止与lede库冲突
+  rm -rf feeds/smpackage/{base-files,dnsmasq,firewall*,fullconenat,libnftnl,nftables,ppp,opkg,ucl,upx,vsftpd-alt,miniupnpd-iptables,wireless-regdb}
+
+  
+  #修复SSR-Plus shadowsocksr-libev libopenssl-legacy 依赖错误问题。
+  #因已回退插件库，不需要修复。
+  #sed -i 's/ +libopenssl-legacy//g' feeds/smpackage/shadowsocksr-libev/Makefile
   
 fi
 
