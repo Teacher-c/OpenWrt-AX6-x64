@@ -144,10 +144,8 @@ jobs:
       - name: Custom Settings
         run: |
           cd ./owrt
-
-          rm -rf ./tmp
-          #rm -rf ./tmp* 
-          #rm -rf ./.config*
+          
+          #rm -rf ./tmp* ./.config*
           if [[ "$OWRT_TARGET" == "Redmi-AX6" && "$OWRT_URL" == *"lede"* ]]; then
           
             cat $GITHUB_WORKSPACE/Config/$OWRT_TARGET.txt $GITHUB_WORKSPACE/Config/General.txt $GITHUB_WORKSPACE/Config/App.txt >> .config
