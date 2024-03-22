@@ -48,10 +48,13 @@ else
   #如果引入smpackage库，则删除冲突插件和argon主题
   rm -rf $(find ./feeds/smpackage/ -type d -regex ".*\(argon\|openclash\).*")
   
+fi
+
+if [[ "$OWRT_TARGET" == "Redmi-AX6" && "$OWRT_URL" == *"lede"* ]]; then
   #修复SSR-Plus shadowsocksr-libev libopenssl-legacy 依赖错误问题。
   #因已回退插件库，不需要修复。
   #sed -i 's/ +libopenssl-legacy//g' feeds/smpackage/shadowsocksr-libev/Makefile
-  
+  cho 'Fix SSR-Plus Skip!'
 fi
 
 if [[ "$OWRT_URL" == *"lede"* ]]; then
