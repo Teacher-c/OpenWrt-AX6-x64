@@ -25,10 +25,10 @@ if [[ "$OWRT_TARGET" == "Redmi-AX6" && "$OWRT_URL" == *"NSS"* ]]; then
   git clone https://github.com/coolsnowwolf/luci.git lede_luci
   
   #添加lede库luci插件
-  cp -rf lede_luci/applications/luci-app-accesscontrol package/new/
-  cp -rf lede_luci/applications/luci-app-autoreboot package/new/
-  cp -rf lede_luci/applications/luci-app-zerotier package/new/
-  cp -rf lede_luci/applications/luci-app-filetransfer package/new/
+  cp -rf lede_luci/applications/luci-app-accesscontrol package/
+  cp -rf lede_luci/applications/luci-app-autoreboot package/
+  cp -rf lede_luci/applications/luci-app-zerotier package/
+  cp -rf lede_luci/applications/luci-app-filetransfer package/
   
   #删除lede库
   rm -rf lede_luci
