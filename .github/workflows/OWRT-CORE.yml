@@ -118,8 +118,6 @@ jobs:
           elif [[ "$OWRT_TARGET" == "Redmi-AX6" && "$OWRT_URL" == *"NSS"* ]]; then
           
             #echo 'Skip Add feeds!'
-            echo 'src-git lede_packages https://github.com/coolsnowwolf/packages' >> feeds.conf.default
-            echo 'src-git lede_luci https://github.com/coolsnowwolf/luci' >> feeds.conf.default
 
           else
           
