@@ -16,7 +16,7 @@ if [[ "$OWRT_TARGET" == "Redmi-AX6" && "$OWRT_URL" == *"NSS"* ]]; then
   rm -rf feeds/nss-packages/utils/mhz
   
   #删除作者库自定义插件
-  rm -rf $(find ./package/new/ -type d -regex ".*\(openclash\|argon\|vlmcsd\|cpufreq\|coremark\|v2ray\｜mosdns\).*")
+  rm -rf $(find ./package/new/ -type d -regex ".*\(openclash\|argon\|vlmcsd\|cpufreq\|coremark\|v2ray\|mosdns\).*")
 
 ######################################################################################
   #已添加smpackages
