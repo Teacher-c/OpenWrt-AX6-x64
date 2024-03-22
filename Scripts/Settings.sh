@@ -36,8 +36,10 @@ if [[ "$OWRT_TARGET" == "Redmi-AX6" && "$OWRT_URL" == *"NSS"* ]]; then
   #添加luci-app-accesscontrol和luci-app-autoreboot
   git clone --depth=1 https://github.com/coolsnowwolf/luci.git feeds/lede_luci
   git clone --depth=1 https://github.com/kenzok8/small-package.git feeds/smpackage
-  
 
+  #删除lede库冲突插件
+  rm -rf $(find ./feeds/lede_luci/ -type d -regex ".*\(argon\|design\|openclash\).*")
+  
   #删除作者config文件对应配置
   sed -i '/cpufreq/d' AX6.config
   sed -i '/argon-config/d' AX6.config
@@ -57,7 +59,6 @@ fi
 rm -rf $(find ./feeds/luci/ -type d -regex ".*\(argon\|design\).*")
 rm -rf $(find ./feeds/packages/ -type d -regex ".*\(argon\|design\).*")
 rm -rf $(find ./feeds/smpackage/ -type d -regex ".*\(argon\|design\|openclash\).*")
-rm -rf $(find ./feeds/lede_luci/ -type d -regex ".*\(argon\|design\|openclash\).*")
 
 #small-package推荐删除防止与lede库冲突
 rm -rf feeds/smpackage/{base-files,dnsmasq,firewall*,fullconenat,libnftnl,nftables,ppp,opkg,ucl,upx,vsftpd-alt,miniupnpd-iptables,wireless-regdb}
