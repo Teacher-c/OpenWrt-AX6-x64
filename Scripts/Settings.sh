@@ -16,25 +16,22 @@ if [[ "$OWRT_TARGET" == "Redmi-AX6" && "$OWRT_URL" == *"NSS"* ]]; then
   rm -rf feeds/nss-packages/utils/mhz
   
   #删除作者库自定义插件
-  rm -rf $(find ./package/new/ -type d -regex ".*\(openclash\|argon\|vlmcsd\|cpufreq\|coremark\|mosdns\).*")
+  rm -rf $(find ./package/new/ -type d -regex ".*\(openclash\|argon\|vlmcsd\|cpufreq\|coremark\).*")
   
   #添加hello world
   git clone --depth=1 https://github.com/fw876/helloworld.git package/new/helloworld
 
-  #删除lede插件luci的argon主题
-  rm -rf $(find ./feeds/lede_luci/ -type d -regex ".*\(argon\).*")
-
   #临时下载lede库luci插件
-  #git clone https://github.com/coolsnowwolf/luci.git lede_luci
+  git clone https://github.com/coolsnowwolf/luci.git lede_luci
   
   #添加lede库luci插件
-  #cp -rf lede_luci/applications/luci-app-accesscontrol package/
-  #cp -rf lede_luci/applications/luci-app-autoreboot package/
-  #cp -rf lede_luci/applications/luci-app-zerotier package/
-  #cp -rf lede_luci/applications/luci-app-filetransfer package/
+  cp -rf lede_luci/applications/luci-app-accesscontrol package/new/
+  cp -rf lede_luci/applications/luci-app-autoreboot package/new/
+  cp -rf lede_luci/applications/luci-app-zerotier package/new/
+  cp -rf lede_luci/applications/luci-app-filetransfer package/new/
   
   #删除lede库
-  #rm -rf lede_luci
+  rm -rf lede_luci
   
   #删除作者config文件对应配置
   sed -i '/cpufreq/d' AX6.config
@@ -87,5 +84,6 @@ if [[ $OWRT_URL == *"lede"* ]] ; then
   sed -i 's/os.date()/os.date("%Y-%m-%d %H:%M:%S %A")/g' $(find ./package/*/autocore/files/ -type f -name "index.htm")
 fi
 
-#./scripts/feeds update -a
-#./scripts/feeds install -a
+./scripts/feeds update -a
+./scripts/feeds install -a
+./scripts/feeds install -a
