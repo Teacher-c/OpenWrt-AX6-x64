@@ -12,11 +12,6 @@
 #git clone https://github.com/sbwml/packages_lang_golang -b 22.x feeds/packages/lang/golang
 
 
-#删除冲突插件
-rm -rf $(find ./feeds/luci/ -type d -regex ".*\(argon\|design\).*")
-rm -rf $(find ./feeds/packages/ -type d -regex ".*\(argon\|design\).*")
-rm -rf $(find ./feeds/smpackage/ -type d -regex ".*\(argon\|design\|openclash\).*")
-
 if [[ "$OWRT_TARGET" == "Redmi-AX6" && "$OWRT_URL" == *"NSS"* ]]; then
   
   #删除openwrt官方luci-base和luci-mod-status
@@ -39,10 +34,9 @@ if [[ "$OWRT_TARGET" == "Redmi-AX6" && "$OWRT_URL" == *"NSS"* ]]; then
   #git clone --depth=1 https://github.com/fw876/helloworld.git package/new/helloworld
 
   #添加luci-app-accesscontrol和luci-app-autoreboot
-  #git clone https://github.com/coolsnowwolf/luci.git feeds/lede_luci
-  #cp -rf lede_luci/applications/luci-app-accesscontrol package/new/
-  #cp -rf lede_luci/applications/luci-app-autoreboot package/new/
-  #rm -rf lede_luci
+  git clone --depth=1 https://github.com/coolsnowwolf/luci.git feeds/lede_luci
+  git clone --depth=1 https://github.com/kenzok8/small-package.git feeds/smpackage
+  
 
   #删除作者config文件对应配置
   sed -i '/cpufreq/d' AX6.config
@@ -58,6 +52,12 @@ if [[ "$OWRT_TARGET" == "Redmi-AX6" && "$OWRT_URL" == *"NSS"* ]]; then
 
   
 fi
+
+#删除冲突插件
+rm -rf $(find ./feeds/luci/ -type d -regex ".*\(argon\|design\).*")
+rm -rf $(find ./feeds/packages/ -type d -regex ".*\(argon\|design\).*")
+rm -rf $(find ./feeds/smpackage/ -type d -regex ".*\(argon\|design\|openclash\).*")
+rm -rf $(find ./feeds/lede_luci/ -type d -regex ".*\(argon\|design\|openclash\).*")
 
 #small-package推荐删除防止与lede库冲突
 rm -rf feeds/smpackage/{base-files,dnsmasq,firewall*,fullconenat,libnftnl,nftables,ppp,opkg,ucl,upx,vsftpd-alt,miniupnpd-iptables,wireless-regdb}
