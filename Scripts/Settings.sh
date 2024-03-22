@@ -32,7 +32,7 @@ if [[ "$OWRT_TARGET" == "Redmi-AX6" && "$OWRT_URL" == *"NSS"* ]]; then
   #cp -rf lede_luci/applications/luci-app-zerotier package/new/
   #cp -rf lede_luci/applications/luci-app-filetransfer package/new/
   
-  删除lede库
+  #删除lede库
   #rm -rf lede_luci
   ####################################################################################
   
