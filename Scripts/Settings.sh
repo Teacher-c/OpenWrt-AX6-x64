@@ -31,14 +31,16 @@ if [[ "$OWRT_TARGET" == "Redmi-AX6" && "$OWRT_URL" == *"NSS"* ]]; then
   rm -rf $(find ./package/new/ -type d -regex ".*\(openclash\|argon\|vlmcsd\|cpufreq\|coremark\|v2ray\|mosdns\).*")
 
   #添加hello world
-  #git clone --depth=1 https://github.com/fw876/helloworld.git package/new/helloworld
+  git clone --depth=1 https://github.com/fw876/helloworld.git package/new/helloworld
 
   #添加luci-app-accesscontrol和luci-app-autoreboot
-  git clone --depth=1 https://github.com/coolsnowwolf/luci.git feeds/lede_luci
-  git clone --depth=1 https://github.com/kenzok8/small-package.git feeds/smpackage
-
-  #删除lede库冲突插件
-  rm -rf $(find ./feeds/lede_luci/ -type d -regex ".*\(argon\|design\|openclash\).*")
+  git clone https://github.com/coolsnowwolf/luci.git lede_luci
+  cp -rf lede_luci/applications/luci-app-accesscontrol package/new/
+  cp -rf lede_luci/applications/luci-app-autoreboot package/new/
+  cp -rf lede_luci/applications/luci-app-zerotier package/new/
+  cp -rf lede_luci/applications/luci-app-wol package/new/
+  cp -rf lede_luci/applications/uci-app-mosdns package/new/
+  rm -rf lede_luci
   
   #删除作者config文件对应配置
   sed -i '/cpufreq/d' AX6.config
