@@ -85,5 +85,8 @@ if [[ $OWRT_URL == *"lede"* ]] ; then
 fi
 
 ./scripts/feeds update -a
-./scripts/feeds install -a
-./scripts/feeds install -a
+#./scripts/feeds install -a
+./scripts/feeds install luci-app-accesscontrol
+./scripts/feeds install luci-app-autoreboot
+./scripts/feeds install luci-app-zerotier
+./scripts/feeds install luci-app-filetransfer
