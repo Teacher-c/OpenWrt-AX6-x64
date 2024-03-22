@@ -28,7 +28,7 @@ if [[ "$OWRT_TARGET" == "Redmi-AX6" && "$OWRT_URL" == *"NSS"* ]]; then
   rm -rf feeds/nss-packages/utils/mhz
   
   #删除作者库自定义插件
-  rm -rf $(find ./package/new/ -type d -regex ".*\(openclash\|argon\|vlmcsd\|cpufreq\|coremark\|v2ray\|mosdns\).*")
+  rm -rf $(find ./package/new/ -type d -regex ".*\(openclash\|argon\|vlmcsd\|cpufreq\|coremark\|v2ray\).*")
 
   #添加hello world
   git clone --depth=1 https://github.com/fw876/helloworld.git package/new/helloworld
@@ -38,8 +38,6 @@ if [[ "$OWRT_TARGET" == "Redmi-AX6" && "$OWRT_URL" == *"NSS"* ]]; then
   cp -rf lede_luci/applications/luci-app-accesscontrol package/new/
   cp -rf lede_luci/applications/luci-app-autoreboot package/new/
   cp -rf lede_luci/applications/luci-app-zerotier package/new/
-  cp -rf lede_luci/applications/luci-app-wol package/new/
-  cp -rf lede_luci/applications/luci-app-mosdns package/new/
   rm -rf lede_luci
   
   #删除作者config文件对应配置
