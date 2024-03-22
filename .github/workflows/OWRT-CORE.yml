@@ -117,7 +117,7 @@ jobs:
             
           elif [[ "$OWRT_TARGET" == "Redmi-AX6" && "$OWRT_URL" == *"NSS"* ]]; then
           
-            #echo 'Skip Add feeds!'
+            echo 'Skip Add feeds!'
 
           else
           
