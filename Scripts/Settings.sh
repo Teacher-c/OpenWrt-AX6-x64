@@ -65,6 +65,14 @@ if [[ "$OWRT_URL" == *"lede"* ]]; then
 
 fi
 
+
+if [[ "$OWRT_URL" == *"immortalwrt"* ]]; then
+
+  #删除mosdns避免与smpacksges冲突
+  rm rf $(find ./feeds/packages/ -type d -regex ".*\(mosdns\).*")
+  
+fi
+
 #删除官方和第三方仓库argon主题
 
 rm -rf $(find ./feeds/luci/ -type d -regex ".*\(argon\).*")
