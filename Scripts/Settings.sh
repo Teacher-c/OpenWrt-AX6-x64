@@ -43,6 +43,7 @@ if [[ "$OWRT_TARGET" == "Redmi-AX6" && "$OWRT_URL" == *"NSS"* ]]; then
   sed -i '/coremark/d' AX6.config
   sed -i '/COREMARK/d' AX6.config
   sed -i '/theme-argon/d' AX6.config
+  sed -i '/sqm/d' AX6.config
   #sed -i '/mosdns/d' AX6.config
 
 else
