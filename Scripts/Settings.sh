@@ -23,9 +23,7 @@ if [[ "$OWRT_URL" == *"immortalwrt"* ]]; then
   rm -rf $(find ./feeds/packages/ -type d -regex ".*\(mosdns\).*")
 
   #添加支持firewall4的turboacc加速
-  curl -sSL https://raw.githubusercontent.com/chenmozhijin/turboacc/luci/add_turboacc.sh -o add_turboacc.sh && bash add_turboacc.sh
-
-  #cp -rf $GITHUB_WORKSPACE/general/AX6/luci-app-turboacc package
+  #curl -sSL https://raw.githubusercontent.com/chenmozhijin/turboacc/luci/add_turboacc.sh -o add_turboacc.sh && bash add_turboacc.sh
   
 fi
 
