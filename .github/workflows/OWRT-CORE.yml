@@ -158,7 +158,7 @@ jobs:
           rm -rf ./tmp* ./.config*
           
           
-          cat $GITHUB_WORKSPACE/Config/$OWRT_TARGET.txt $GITHUB_WORKSPACE/Config/General.txt $GITHUB_WORKSPACE/Config/App.txt >> .config
+          cat $GITHUB_WORKSPACE/Config/$OWRT_TARGET.txt $GITHUB_WORKSPACE/Config/General.txt >> .config
             
 
           $GITHUB_WORKSPACE/Scripts/Extras.sh
