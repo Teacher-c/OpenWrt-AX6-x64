@@ -85,12 +85,11 @@ jobs:
           if [[ "$OWRT_TARGET" == "Redmi-AX6" && "$OWRT_URL" == *"lede"* ]]; then
             cd ./owrt
             # 因AX6无线驱动问题，暂时维持源码版本在20230501
-            #git reset --hard 26f3634631244eedfbdfd61ea6cc3a2d7f5d896f
+            git reset --hard 26f3634631244eedfbdfd61ea6cc3a2d7f5d896f
             # Patch
-            #cp -rf $GITHUB_WORKSPACE/general/AX6/target/linux/ipq807x/image/generic.mk target/linux/ipq807x/image/
+            cp -rf $GITHUB_WORKSPACE/general/AX6/target/linux/ipq807x/image/generic.mk target/linux/ipq807x/image/
             echo 'Fix AX6 Done!'
-            #直接回到2022.03.02
-            git reset --hard e8cb010cecf0a9ba737960230608a59bd40c8492
+            
           else
             echo 'Fix AX6 Skip!'
           fi
@@ -158,15 +157,9 @@ jobs:
           
           rm -rf ./tmp* ./.config*
           
-          if [[ "$OWRT_TARGET" == "Redmi-AX6" && "$OWRT_URL" == *"AX6NSS"* ]]; then
           
-            cat $GITHUB_WORKSPACE/Config/App.txt AX6.config >> .config
+          cat $GITHUB_WORKSPACE/Config/$OWRT_TARGET.txt $GITHUB_WORKSPACE/Config/General.txt $GITHUB_WORKSPACE/Config/App.txt >> .config
             
-          else
-          
-            cat $GITHUB_WORKSPACE/Config/$OWRT_TARGET.txt $GITHUB_WORKSPACE/Config/General.txt $GITHUB_WORKSPACE/Config/App.txt >> .config
-            
-          fi
 
           $GITHUB_WORKSPACE/Scripts/Extras.sh
 
