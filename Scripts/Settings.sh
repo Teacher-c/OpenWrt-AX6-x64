@@ -69,7 +69,7 @@ fi
 if [[ "$OWRT_URL" == *"immortalwrt"* ]]; then
 
   #删除mosdns避免与smpacksges冲突
-  rm rf $(find ./feeds/packages/ -type d -regex ".*\(mosdns\).*")
+  rm -rf $(find ./feeds/packages/ -type d -regex ".*\(mosdns\).*")
   
 fi
 
