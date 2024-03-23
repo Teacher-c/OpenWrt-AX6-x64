@@ -1,6 +1,6 @@
 #!/bin/bash
 
-if [[ "$OWRT_TARGET" == "Redmi-AX6" && "$OWRT_URL" == *"NSS"* ]]; then
+if [[ "$OWRT_TARGET" == "Redmi-AX6" && "$OWRT_URL" == *"AX6NSS"* ]]; then
   
   #删除openwrt官方luci-base和luci-mod-status
   rm -rf feeds/luci/modules/luci-base
