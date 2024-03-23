@@ -22,16 +22,16 @@ if [[ "$OWRT_TARGET" == "Redmi-AX6" && "$OWRT_URL" == *"NSS"* ]]; then
   git clone --depth=1 https://github.com/fw876/helloworld.git package/new/helloworld
 
   #临时下载lede库luci插件
-  git clone https://github.com/coolsnowwolf/luci.git lede_luci
+  #git clone https://github.com/coolsnowwolf/luci.git lede_luci
   
   #添加lede库luci插件
-  cp -rf lede_luci/applications/luci-app-accesscontrol package/new/
-  cp -rf lede_luci/applications/luci-app-autoreboot package/new/
-  cp -rf lede_luci/applications/luci-app-zerotier package/new/
-  cp -rf lede_luci/applications/luci-app-filetransfer package/new/
+  #cp -rf lede_luci/applications/luci-app-accesscontrol package/new/
+  #cp -rf lede_luci/applications/luci-app-autoreboot package/new/
+  #cp -rf lede_luci/applications/luci-app-zerotier package/new/
+  #cp -rf lede_luci/applications/luci-app-filetransfer package/new/
   
   #删除lede库
-  rm -rf lede_luci
+  #rm -rf lede_luci
   
   #删除作者config文件对应配置
   sed -i '/cpufreq/d' AX6.config
@@ -43,7 +43,7 @@ if [[ "$OWRT_TARGET" == "Redmi-AX6" && "$OWRT_URL" == *"NSS"* ]]; then
   sed -i '/coremark/d' AX6.config
   sed -i '/COREMARK/d' AX6.config
   sed -i '/theme-argon/d' AX6.config
-  sed -i '/mosdns/d' AX6.config
+  #sed -i '/mosdns/d' AX6.config
 
 else
 
