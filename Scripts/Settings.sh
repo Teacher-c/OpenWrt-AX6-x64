@@ -1,63 +1,13 @@
 #!/bin/bash
 
-if [[ "$OWRT_TARGET" == "Redmi-AX6" && "$OWRT_URL" == *"AX6NSS"* ]]; then
-  
-  #删除openwrt官方luci-base和luci-mod-status
-  rm -rf feeds/luci/modules/luci-base
-  rm -rf feeds/luci/modules/luci-mod-status
-  
-  #把immortalwrt luci-base和luci-mod-status拷回去
-  git clone https://github.com/immortalwrt/luci.git immortalwr_luci
-  cp -rf immortalwr_luci/modules/luci-base feeds/luci/modules/
-  cp -rf immortalwr_luci/modules/luci-mod-status feeds/luci/modules/
-  rm -rf immortalwr_luci
-
-  #删除mhz
-  rm -rf feeds/nss-packages/utils/mhz
-  
-  #删除作者库自定义插件
-  rm -rf $(find ./package/new/ -type d -regex ".*\(openclash\|argon\|vlmcsd\|cpufreq\|coremark\).*")
-  
-  #添加hello world
-  git clone --depth=1 https://github.com/fw876/helloworld.git package/new/helloworld
-
-  #临时下载lede库luci插件
-  #git clone https://github.com/coolsnowwolf/luci.git lede_luci
-  
-  #添加lede库luci插件
-  #cp -rf lede_luci/applications/luci-app-accesscontrol package/new/
-  #cp -rf lede_luci/applications/luci-app-autoreboot package/new/
-  #cp -rf lede_luci/applications/luci-app-zerotier package/new/
-  #cp -rf lede_luci/applications/luci-app-filetransfer package/new/
-  
-  #删除lede库
-  #rm -rf lede_luci
-  
-  #删除作者config文件对应配置
-  sed -i '/cpufreq/d' AX6.config
-  sed -i '/argon-config/d' AX6.config
-  sed -i '/openclash/d' AX6.config
-  sed -i '/vlmcsd/d' AX6.config
-  sed -i '/theme-bootstrap/d' AX6.config
-  sed -i '/ddns/d' AX6.config
-  sed -i '/coremark/d' AX6.config
-  sed -i '/COREMARK/d' AX6.config
-  sed -i '/theme-argon/d' AX6.config
-  sed -i '/sqm/d' AX6.config
-  #sed -i '/mosdns/d' AX6.config
-
-else
-
   #如果引入smpackage库，则删除冲突插件和argon主题
   rm -rf $(find ./feeds/smpackage/ -type d -regex ".*\(argon\|openclash\).*")
-  
-fi
 
+  #small-package推荐删除防止与lede库冲突，immortalwrt应该也是？
+  rm -rf feeds/smpackage/{base-files,dnsmasq,firewall*,fullconenat,libnftnl,nftables,ppp,opkg,ucl,upx,vsftpd-alt,miniupnpd-iptables,wireless-regdb}
+  
 
 if [[ "$OWRT_URL" == *"lede"* ]]; then
-
-  #small-package推荐删除防止与lede库冲突
-  rm -rf feeds/smpackage/{base-files,dnsmasq,firewall*,fullconenat,libnftnl,nftables,ppp,opkg,ucl,upx,vsftpd-alt,miniupnpd-iptables,wireless-regdb}
   
   #修复SSR-Plus shadowsocksr-libev libopenssl-legacy 依赖错误问题。
   #因已回退插件库，不需要修复。
