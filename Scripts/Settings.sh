@@ -12,7 +12,7 @@ if [[ "$OWRT_URL" == *"lede"* ]]; then
   #修复SSR-Plus shadowsocksr-libev libopenssl-legacy 依赖错误问题。
   #因已回退插件库，不需要修复。
   #sed -i 's/ +libopenssl-legacy//g' feeds/smpackage/shadowsocksr-libev/Makefile
-
+  echo 'skip SSR plus fix'
 fi
 
 
