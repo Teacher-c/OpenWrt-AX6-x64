@@ -53,16 +53,16 @@ else
   
 fi
 
-if [[ "$OWRT_TARGET" == "Redmi-AX6" && "$OWRT_URL" == *"lede"* ]]; then
+
+if [[ "$OWRT_URL" == *"lede"* ]]; then
+
+  #small-package推荐删除防止与lede库冲突
+  rm -rf feeds/smpackage/{base-files,dnsmasq,firewall*,fullconenat,libnftnl,nftables,ppp,opkg,ucl,upx,vsftpd-alt,miniupnpd-iptables,wireless-regdb}
+  
   #修复SSR-Plus shadowsocksr-libev libopenssl-legacy 依赖错误问题。
   #因已回退插件库，不需要修复。
   #sed -i 's/ +libopenssl-legacy//g' feeds/smpackage/shadowsocksr-libev/Makefile
-  cho 'Fix SSR-Plus Skip!'
-fi
 
-if [[ "$OWRT_URL" == *"lede"* ]]; then
-  #small-package推荐删除防止与lede库冲突
-  rm -rf feeds/smpackage/{base-files,dnsmasq,firewall*,fullconenat,libnftnl,nftables,ppp,opkg,ucl,upx,vsftpd-alt,miniupnpd-iptables,wireless-regdb}
 fi
 
 #删除官方和第三方仓库argon主题
