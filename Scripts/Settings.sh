@@ -20,6 +20,9 @@ if [[ "$OWRT_URL" == *"immortalwrt"* ]]; then
 
   #删除mosdns避免与smpacksges冲突
   rm -rf $(find ./feeds/packages/ -type d -regex ".*\(mosdns\).*")
+
+  #支持firewall4的turboacc加速
+  curl -sSL https://raw.githubusercontent.com/chenmozhijin/turboacc/luci/add_turboacc.sh -o add_turboacc.sh && bash add_turboacc.sh
   
 fi
 
