@@ -22,12 +22,6 @@ if [[ "$OWRT_URL" == "https://github.com/DoveKi/immortalwrt-nss.git" ]]; then
   #删除mosdns避免与smpacksges冲突
   rm -rf $(find ./feeds/packages/ -type d -regex ".*\(mosdns\).*")
   
-  #删除utils/mhz避免与turboacc冲突?
-  rm -rf feeds/nss-packages/utils/mhz
-
-  #添加支持firewall4的turboacc加速
-  curl -sSL https://raw.githubusercontent.com/chenmozhijin/turboacc/luci/add_turboacc.sh -o add_turboacc.sh && bash add_turboacc.sh
-  
 fi
 
 if [[ "$OWRT_URL" == "https://github.com/immortalwrt/immortalwrt.git" ]]; then
