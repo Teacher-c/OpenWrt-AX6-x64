@@ -65,8 +65,8 @@ if [[ "$OWRT_URL" == "https://github.com/qosmio/openwrt-ipq.git" ]]; then
 
   cp -rf $GITHUB_WORKSPACE/general/AX6/ipq8071-ax6-stock.dts target/linux/qualcommax/files/arch/arm64/boot/dts/qcom/
 
-  #添加支持firewall4的turboacc加速
-  curl -sSL https://raw.githubusercontent.com/chenmozhijin/turboacc/luci/add_turboacc.sh -o add_turboacc.sh && bash add_turboacc.sh
+  #添加支持firewall4的turboacc加速,有nss编译失败？
+  #curl -sSL https://raw.githubusercontent.com/chenmozhijin/turboacc/luci/add_turboacc.sh -o add_turboacc.sh && bash add_turboacc.sh
 
 fi
 
