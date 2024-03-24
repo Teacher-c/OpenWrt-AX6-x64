@@ -1,10 +1,15 @@
 #!/bin/bash
 
+#删除官方和第三方仓库argon主题
+
+rm -rf $(find ./feeds/luci/ -type d -regex ".*\(argon\).*")
+
   #如果引入smpackage库，则删除冲突插件和argon主题
-  rm -rf $(find ./feeds/smpackage/ -type d -regex ".*\(argon\|openclash\).*")
+rm -rf $(find ./feeds/smpackage/ -type d -regex ".*\(argon\|openclash\).*")
 
   #small-package推荐删除防止与lede库冲突，immortalwrt应该也是？
-  rm -rf feeds/smpackage/{base-files,dnsmasq,firewall*,fullconenat,libnftnl,nftables,ppp,opkg,ucl,upx,vsftpd-alt,miniupnpd-iptables,wireless-regdb}
+  
+rm -rf feeds/smpackage/{base-files,dnsmasq,firewall*,fullconenat,libnftnl,nftables,ppp,opkg,ucl,upx,vsftpd-alt,miniupnpd-iptables,wireless-regdb}
   
 
 if [[ "$OWRT_URL" == *"lede"* ]]; then
@@ -34,9 +39,33 @@ if [[ "$OWRT_URL" == "https://github.com/immortalwrt/immortalwrt.git" ]]; then
   
 fi
 
-#删除官方和第三方仓库argon主题
+if [[ "$OWRT_URL" == "https://github.com/qosmio/openwrt-ipq.git" ]]; then
 
-rm -rf $(find ./feeds/luci/ -type d -regex ".*\(argon\).*")
+#移除原插件库用immortalwrt的代替
+  rm -rf feeds/luci/modules/luci-base
+  rm -rf feeds/luci/modules/luci-mod-status
+
+  git clone https://github.com/immortalwrt/luci.git luci_tmp
+  cp -rf luci_tmp/modules/luci-base feeds/luci/modules/
+  cp -rf luci_tmp/modules/luci-mod-status feeds/luci/modules/
+  rm -rf luci_tmp
+
+#作用？
+  rm -rf feeds/nss-packages/utils/mhz
+
+##依照immortalwrt对原版openwrt添加大分区支持
+
+  sed -i 's/redmi,ax6/redmi,ax6-stock'/g package/boot/uboot-envtools/files/qualcommax_ipq807x
+  sed -i 's/redmi,ax6/redmi,ax6-stock'/g target/linux/qualcommax/ipq807x/base-files/etc/board.d/01_leds
+  sed -i 's/redmi,ax6/redmi,ax6-stock'/g target/linux/qualcommax/ipq807x/base-files/etc/board.d/02_network
+  sed -i 's/redmi,ax6/redmi,ax6-stock'/g target/linux/qualcommax/ipq807x/base-files/etc/hotplug.d/firmware/11-ath11k-caldata
+  sed -i 's/redmi,ax6/redmi,ax6-stock'/g target/linux/qualcommax/ipq807x/base-files/lib/upgrade/platform.sh
+
+  cat $GITHUB_WORKSPACE/general/AX6/ax6-stock-mk.txt >> target/linux/qualcommax/image/ipq807x.mk
+
+  cp -rf $GITHUB_WORKSPACE/general/AX6/ipq8071-ax6-stock.dts target/linux/qualcommax/files/arch/arm64/boot/dts/qcom/
+
+fi
 
 #修改默认主题
 sed -i "s/luci-theme-bootstrap/luci-theme-$OWRT_THEME/g" $(find ./feeds/luci/collections/ -type f -name "Makefile")
