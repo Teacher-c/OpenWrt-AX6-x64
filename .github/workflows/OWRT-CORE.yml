@@ -89,7 +89,11 @@ jobs:
             # Patch
             cp -rf $GITHUB_WORKSPACE/general/AX6/target/linux/ipq807x/image/generic.mk target/linux/ipq807x/image/
             echo 'Fix AX6 Done!'
-            
+
+          elif [[ "$OWRT_URL" == "https://github.com/qosmio/openwrt-ipq.git" ]]; then
+
+            git reset --hard 8753022aeae14eaee02e0c1e59244c5b36e454db
+     
           else
             echo 'Fix AX6 Skip!'
           fi
