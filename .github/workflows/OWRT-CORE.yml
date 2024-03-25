@@ -93,10 +93,13 @@ jobs:
           elif [[ "$OWRT_URL" == "https://github.com/qosmio/openwrt-ipq.git" ]]; then
             cd ./owrt
              
-            git reset --hard 8753022aeae14eaee02e0c1e59244c5b36e454db
+            #git reset --hard 8753022aeae14eaee02e0c1e59244c5b36e454db
+            echo 'Fix AX6 Skip!'
      
           else
+          
             echo 'Fix AX6 Skip!'
+            
           fi
 
       - name: Load custom feeds
@@ -126,7 +129,8 @@ jobs:
             
           else
           
-            echo 'src-git smpackage https://github.com/kenzok8/small-package^9427098286593c2a3c0d50be32818ea6eaf1273e' >> feeds.conf.default
+            #echo 'src-git smpackage https://github.com/kenzok8/small-package' >> feeds.conf.default
+            echo 'feed add skip!'
             
           fi
       - name: Update Feeds
