@@ -129,8 +129,8 @@ jobs:
             
           else
           
-            #echo 'src-git smpackage https://github.com/kenzok8/small-package' >> feeds.conf.default
-            echo 'feed add skip!'
+            echo 'src-git smpackage https://github.com/kenzok8/small-package' >> feeds.conf.default
+            #echo 'feed add skip!'
             
           fi
       - name: Update Feeds
