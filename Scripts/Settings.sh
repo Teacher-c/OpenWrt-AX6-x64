@@ -5,7 +5,7 @@
 rm -rf $(find ./feeds/luci/ -type d -regex ".*\(argon\|design\).*")
 
   #如果引入smpackage库，则删除冲突插件和argon主题
-rm -rf $(find ./feeds/smpackage/ -type d -regex ".*\(argon\|design\).*")
+rm -rf $(find ./feeds/smpackage/ -type d -regex ".*\(argon\|design\|\passwall).*")
 
   #small-package推荐删除防止与lede库冲突，immortalwrt应该也是？
   
