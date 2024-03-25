@@ -65,9 +65,22 @@ if [[ "$OWRT_URL" == "https://github.com/qosmio/openwrt-ipq.git" ]]; then
 
   cp -rf $GITHUB_WORKSPACE/general/AX6/ipq8071-ax6-stock.dts target/linux/qualcommax/files/arch/arm64/boot/dts/qcom/
 
+fi
 
-  #添加支持firewall4的turboacc加速,有nss编译失败？
-  #curl -sSL https://raw.githubusercontent.com/chenmozhijin/turboacc/luci/add_turboacc.sh -o add_turboacc.sh && bash add_turboacc.sh
+if [[ "$OWRT_URL" == "https://github.com/TerryLip/AX6NSS.git" ]]; then
+
+#移除原插件库用immortalwrt的代替
+  rm -rf feeds/luci/modules/luci-base
+  rm -rf feeds/luci/modules/luci-mod-status
+
+  git clone https://github.com/immortalwrt/luci.git luci_tmp
+  cp -rf luci_tmp/modules/luci-base feeds/luci/modules/
+  cp -rf luci_tmp/modules/luci-mod-status feeds/luci/modules/
+  rm -rf luci_tmp
+
+#移除作者自定义插件保留luci-app-turboacc
+  cp -rf package/new/luci-app-turboacc package/
+  rm -rf /package/new
 
 fi
 
