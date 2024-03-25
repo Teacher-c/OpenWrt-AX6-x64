@@ -9,7 +9,7 @@ rm -rf $(find ./feeds/smpackage/ -type d -regex ".*\(argon\|design\|passwall\|op
 
   #small-package推荐删除防止与lede库冲突，immortalwrt应该也是？
   
-rm -rf feeds/smpackage/{base-files,dnsmasq,firewall*,fullconenat,libnftnl,nftables,ppp,opkg,ucl,upx,vsftpd-alt,miniupnpd-iptables,wireless-regdb,shadowsocksr-libev}
+rm -rf feeds/smpackage/{base-files,dnsmasq,firewall*,fullconenat,libnftnl,nftables,ppp,opkg,ucl,upx,vsftpd-alt,miniupnpd-iptables,wireless-regdb}
   
 
 if [[ "$OWRT_URL" == *"lede"* ]]; then
