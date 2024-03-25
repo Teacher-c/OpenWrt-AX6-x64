@@ -78,6 +78,8 @@ if [[ "$OWRT_URL" == "https://github.com/TerryLip/AX6NSS.git" ]]; then
   cp -rf luci_tmp/modules/luci-mod-status feeds/luci/modules/
   rm -rf luci_tmp
 
+  rm -rf feeds/nss-packages/utils/mhz
+
 #移除作者自定义插件保留luci-app-turboacc
   cp -rf package/new/luci-app-turboacc package/
   rm -rf /package/new
