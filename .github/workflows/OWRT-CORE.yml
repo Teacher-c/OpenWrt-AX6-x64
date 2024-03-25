@@ -124,13 +124,18 @@ jobs:
             #kenzok8的small-package库插入到第一行，回退到2024.01.18避免ssr-plus编译失败
             sed -i '1i\src-git smpackage https://github.com/kenzok8/small-package^154af743a2d695030591c1d69f65a710628d8555' feeds.conf.default
             
-          elif [[ "$OWRT_URL" == "https://github.com/DoveKi/immortalwrt-nss.git" ]]; then
+          elif [[ "$OWRT_URL" == "https://github.com/TerryLip/AX6NSS.git" ]]; then
           
-            echo 'src-git smpackage https://github.com/kenzok8/small-package' >> feeds.conf.default
+            echo 'feed add skip!'
+
+          elif [[ "$OWRT_URL" == "https://github.com/qosmio/openwrt-ipq.git" ]]; then
+          
+            echo 'feed add skip!'
 
           else
+
+            echo 'src-git smpackage https://github.com/kenzok8/small-package' >> feeds.conf.default
             
-            echo 'feed add skip!'
             
           fi
           
