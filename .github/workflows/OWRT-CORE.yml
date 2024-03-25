@@ -91,7 +91,8 @@ jobs:
             echo 'Fix AX6 Done!'
 
           elif [[ "$OWRT_URL" == "https://github.com/qosmio/openwrt-ipq.git" ]]; then
-
+            cd ./owrt
+             
             git reset --hard 8753022aeae14eaee02e0c1e59244c5b36e454db
      
           else
