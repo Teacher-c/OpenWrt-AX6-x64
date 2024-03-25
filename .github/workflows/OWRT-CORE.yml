@@ -162,8 +162,15 @@ jobs:
           
           rm -rf ./tmp* ./.config*
           
+          if [[ "$OWRT_URL" == "https://github.com/TerryLip/AX6NSS.git" ]]; then
+
+            cat AX6.config $GITHUB_WORKSPACE/Config/General.txt >> .config
+
+          else
           
-          cat $GITHUB_WORKSPACE/Config/$OWRT_TARGET.txt $GITHUB_WORKSPACE/Config/General.txt >> .config
+            cat $GITHUB_WORKSPACE/Config/$OWRT_TARGET.txt $GITHUB_WORKSPACE/Config/General.txt >> .config
+
+          fi
             
 
           $GITHUB_WORKSPACE/Scripts/Extras.sh
