@@ -93,6 +93,12 @@ jobs:
             cp -rf $GITHUB_WORKSPACE/general/AX6/target/linux/ipq807x/image/generic.mk target/linux/ipq807x/image/
            
             echo 'Fix AX6 Done!'
+
+          elif [[ "$OWRT_URL" == "https://github.com/DoveKi/immortalwrt-nss.git" ]]; then
+
+            #git reset --hard 5854ad1a0ba6249706003d52d6b7403e37219792
+
+            echo 'Fix AX6 Skip!'
      
           else
           
@@ -123,6 +129,20 @@ jobs:
 
             #kenzok8的small-package库插入到第一行，回退到2024.01.18避免ssr-plus编译失败
             sed -i '1i\src-git smpackage https://github.com/kenzok8/small-package^154af743a2d695030591c1d69f65a710628d8555' feeds.conf.default
+
+          elif [[ "$OWRT_URL" == "https://github.com/DoveKi/immortalwrt-nss.git" ]]; then
+
+            sed -i '/luci/d' feeds.conf.default
+            
+            sed -i '/packages/d' feeds.conf.default
+
+            sed -i '/nss_packages/d' feeds.conf.default
+
+            echo 'src-git packages https://github.com/immortalwrt/packages.git^d930ab31586ea9fc40e871786c027120fc57c716' >> feeds.conf.default
+
+            echo 'src-git luci https://github.com/immortalwrt/luci.git^57b320a354d5766585574e559ed050735d18ddba' >> feeds.conf.default
+
+            echo 'src-git nss_packages https://github.com/qosmio/nss-packages.git^fd81770c4c1d146972a736a0c1d5cef40e4d2ac2;NSS-12.4-K6.1' >> feeds.conf.default
             
           elif [[ "$OWRT_URL" == "https://github.com/TerryLip/AX6NSS.git" ]]; then
           
