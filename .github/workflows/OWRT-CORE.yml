@@ -142,7 +142,7 @@ jobs:
 
             echo 'src-git luci https://github.com/immortalwrt/luci.git^57b320a354d5766585574e559ed050735d18ddba' >> feeds.conf.default
 
-            echo 'src-git nss_packages https://github.com/qosmio/nss-packages.git^fd81770c4c1d146972a736a0c1d5cef40e4d2ac2;NSS-12.4-K6.1' >> feeds.conf.default
+            echo 'src-git nss_packages https://github.com/qosmio/nss-packages.git;NSS-12.4-K6.1^fd81770c4c1d146972a736a0c1d5cef40e4d2ac2' >> feeds.conf.default
             
           elif [[ "$OWRT_URL" == "https://github.com/TerryLip/AX6NSS.git" ]]; then
           
