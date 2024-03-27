@@ -5,15 +5,15 @@ git clone --depth=1 --single-branch --branch $(echo $OWRT_URL | grep -iq "lede" 
 #注释掉，不要Argon主题配置
 #git clone --depth=1 --single-branch --branch $(echo $OWRT_URL | grep -iq "lede" && echo "18.06" || echo "master") https://github.com/jerrykuku/luci-app-argon-config.git
 
-#Open Clash
-#git clone --depth=1 --single-branch --branch "dev" https://github.com/vernesong/OpenClash.git
-
 #Pass Wall
 #git clone --depth=1 --single-branch --branch "main" https://github.com/xiaorouji/openwrt-passwall.git ./pw_luci
 #git clone --depth=1 --single-branch --branch "main" https://github.com/xiaorouji/openwrt-passwall-packages.git ./pw_packages
 
 #helloworld
-#git clone --depth=1 https://github.com/fw876/helloworld.git package/helloworld
+git clone --depth=1 https://github.com/fw876/helloworld.git package/helloworld
+
+#Open Clash
+#git clone --depth=1 --single-branch --branch "dev" https://github.com/vernesong/OpenClash.git
 
 #预置OpenClash内核和GEO数据
 #export CORE_VER=https://raw.githubusercontent.com/vernesong/OpenClash/core/dev/core_version
