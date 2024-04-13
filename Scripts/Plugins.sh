@@ -10,7 +10,7 @@ git clone --depth=1 --single-branch --branch $(echo $OWRT_URL | grep -iq "lede" 
 #git clone --depth=1 --single-branch --branch "main" https://github.com/xiaorouji/openwrt-passwall-packages.git ./pw_packages
 
 #helloworld
-git clone --depth=1 https://github.com/fw876/helloworld.git package/helloworld
+#git clone --depth=1 https://github.com/fw876/helloworld.git package/helloworld
 
 #Open Clash
 #git clone --depth=1 --single-branch --branch "dev" https://github.com/vernesong/OpenClash.git
