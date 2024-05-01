@@ -1,5 +1,4 @@
 #Redmi-AX6-stock
-CONFIG_LINUX_6_1=y
 # Select the target platform
 CONFIG_TARGET_qualcommax=y
 CONFIG_TARGET_qualcommax_ipq807x=y
