@@ -1,7 +1,4 @@
 #Redmi-AX6-stock
-CONFIG_PACKAGE_kmod-cfg80211=y
-CONFIG_PACKAGE_kmod-mac80211=y
-CONFIG_PACKAGE_MAC80211_DEBUGFS=y
 # Select the target platform
 CONFIG_TARGET_qualcommax=y
 CONFIG_TARGET_qualcommax_ipq807x=y
