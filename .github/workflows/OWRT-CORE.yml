@@ -138,6 +138,8 @@ jobs:
 
             #sed -i '/nss_packages/d' feeds.conf.default
 
+            sed -i '/sqm_scripts_nss/d' feeds.conf.default
+
             #echo 'src-git luci https://github.com/immortalwrt/luci.git^57b320a354d5766585574e559ed050735d18ddba' >> feeds.conf.default
 
             #echo 'src-git packages https://github.com/immortalwrt/packages.git^d930ab31586ea9fc40e871786c027120fc57c716' >> feeds.conf.default
