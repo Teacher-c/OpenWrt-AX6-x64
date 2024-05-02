@@ -80,8 +80,9 @@ if [[ "$OWRT_URL" == "https://github.com/TerryLip/AX6NSS.git" ]]; then
 
   rm -rf feeds/nss-packages/utils/mhz
 
-#移除作者自定义插件保留luci-app-turboacc
+#移除作者自定义插件保留luci-app-turboacc和mosdns
   cp -rf package/new/luci-app-turboacc package/
+  cp -rf package/new/mosdns package/
   rm -rf /package/new
 
 fi
