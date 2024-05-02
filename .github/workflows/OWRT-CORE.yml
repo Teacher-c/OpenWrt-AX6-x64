@@ -85,8 +85,6 @@ jobs:
         
             cp -rf $GITHUB_WORKSPACE/general/AX6/CusApp package/
             
-          else
-            echo 'skip remove package!'
           fi
           
       
