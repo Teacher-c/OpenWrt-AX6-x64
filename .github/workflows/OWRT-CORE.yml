@@ -82,6 +82,7 @@ jobs:
           
           if [[ "$OWRT_URL" == "https://github.com/TerryLip/AX6NSS.git" ]]; then
             cd ./owrt
+            cp -rf ./package/new/luci-app-turboacc ./package/
             rm -rf ./package/new
           else
             echo 'skip remove package!'
