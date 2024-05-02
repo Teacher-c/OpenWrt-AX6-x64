@@ -154,7 +154,13 @@ jobs:
             
           elif [[ "$OWRT_URL" == "https://github.com/TerryLip/AX6NSS.git" ]]; then
           
-            echo 'feed add skip!'
+            sed -i '/luci/d' feeds.conf.default
+            
+            sed -i '/packages/d' feeds.conf.default
+
+            echo 'src-git luci https://github.com/immortalwrt/luci.git' >> feeds.conf.default
+
+            echo 'src-git packages https://github.com/immortalwrt/packages.git' >> feeds.conf.default
 
           elif [[ "$OWRT_URL" == "https://github.com/qosmio/openwrt-ipq.git" ]]; then
           
