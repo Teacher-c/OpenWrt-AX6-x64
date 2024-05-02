@@ -163,15 +163,15 @@ jobs:
             
           elif [[ "$OWRT_URL" == "https://github.com/TerryLip/AX6NSS.git" ]]; then
           
-            sed -i '/luci/d' feeds.conf.default
+            #sed -i '/luci/d' feeds.conf.default
             
-            sed -i '/packages/d' feeds.conf.default
+            #sed -i '/packages/d' feeds.conf.default
 
             sed -i '/sqm_scripts_nss/d' feeds.conf.default
 
-            echo 'src-git luci https://github.com/immortalwrt/luci.git' >> feeds.conf.default
+            #echo 'src-git luci https://github.com/immortalwrt/luci.git' >> feeds.conf.default
 
-            echo 'src-git packages https://github.com/immortalwrt/packages.git' >> feeds.conf.default
+            #echo 'src-git packages https://github.com/immortalwrt/packages.git' >> feeds.conf.default
 
             echo 'src-git smpackage https://github.com/kenzok8/small-package' >> feeds.conf.default
 
