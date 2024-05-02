@@ -189,6 +189,23 @@ jobs:
 
           $GITHUB_WORKSPACE/Scripts/Plugins.sh
 
+      - name: Apply NSS Status patch
+        run: |
+          cd ./owrt
+          
+          if [[ "$OWRT_URL" == "https://github.com/DoveKi/immortalwrt-nss.git" ]]; then
+          
+            mv $GITHUB_WORKSPACE/general/AX6/nss-status.patch feeds/luci/
+            
+            cd feeds/luci
+            
+            git apply nss-status.patch
+
+          else
+
+            echo 'NSS Status patch skip!'
+
+          fi
 
       - name: Custom Settings
         run: |
