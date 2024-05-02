@@ -82,8 +82,9 @@ jobs:
           
           if [[ "$OWRT_URL" == "https://github.com/TerryLip/AX6NSS.git" ]]; then
             cd ./owrt
-            #cp -rf package/new/luci-app-turboacc package/
-            rm -rf package/new
+        
+            cp -rf $GITHUB_WORKSPACE/general/AX6/CusApp package/
+            
           else
             echo 'skip remove package!'
           fi
@@ -193,6 +194,18 @@ jobs:
           cd ./owrt
           
           ./scripts/feeds install -a
+
+      - name: Apply NSS Status patch
+        run: |
+        
+          if [[ "$OWRT_URL" == "https://github.com/TerryLip/AX6NSS.git" ]]; then
+          
+            cd ./owrt
+            cp $GITHUB_WORKSPACE/general/AX6/nss-status.patch feeds/luci/
+            cd feeds/luci
+            git apply nss-status.patch
+
+          fi
           
       - name: Custom Scripts
         run: |
