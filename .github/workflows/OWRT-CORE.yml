@@ -82,8 +82,8 @@ jobs:
           
           if [[ "$OWRT_URL" == "https://github.com/TerryLip/AX6NSS.git" ]]; then
             cd ./owrt
-            cp -rf ./package/new/luci-app-turboacc ./package/
-            rm -rf ./package/new
+            cp -rf package/new/luci-app-turboacc package/
+            rm -rf package/new
           else
             echo 'skip remove package!'
           fi
@@ -175,10 +175,6 @@ jobs:
 
             echo 'src-git smpackage https://github.com/kenzok8/small-package' >> feeds.conf.default
 
-          elif [[ "$OWRT_URL" == "https://github.com/qosmio/openwrt-ipq.git" ]]; then
-          
-            echo 'feed add skip!'
-
           else
 
             echo 'src-git smpackage https://github.com/kenzok8/small-package' >> feeds.conf.default
@@ -214,16 +210,7 @@ jobs:
           
           rm -rf ./tmp* ./.config*
           
-          if [[ "$OWRT_URL" == "https://github.com/TerryLip/AX6NSS.git" ]]; then
-
-            cat AX6.config $GITHUB_WORKSPACE/Config/General.txt >> .config
-
-          else
-          
-            cat $GITHUB_WORKSPACE/Config/$OWRT_TARGET.txt $GITHUB_WORKSPACE/Config/General.txt >> .config
-
-          fi
-            
+          cat $GITHUB_WORKSPACE/Config/$OWRT_TARGET.txt $GITHUB_WORKSPACE/Config/General.txt >> .config
 
           $GITHUB_WORKSPACE/Scripts/Extras.sh
 
