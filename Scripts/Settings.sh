@@ -81,9 +81,12 @@ if [[ "$OWRT_URL" == "https://github.com/TerryLip/AX6NSS.git" ]]; then
   rm -rf feeds/nss-packages/utils/mhz
 
 #移除作者自定义插件保留luci-app-turboacc和mosdns
-  cp -rf package/new/luci-app-turboacc package/
-  cp -rf package/new/mosdns package/
-  rm -rf /package/new
+#  cp -rf package/new/luci-app-turboacc package/
+#  cp -rf package/new/mosdns package/
+#  rm -rf /package/new
+
+  #添加支持firewall4的turboacc加速
+  curl -sSL https://raw.githubusercontent.com/chenmozhijin/turboacc/luci/add_turboacc.sh -o add_turboacc.sh && bash add_turboacc.sh
 
 fi
 
