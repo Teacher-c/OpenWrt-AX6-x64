@@ -79,6 +79,14 @@ jobs:
       - name: Clone OWRT Code
         run: |
           git clone $OWRT_URL ./owrt
+          
+          if [[ "$OWRT_URL" == "https://github.com/TerryLip/AX6NSS.git" ]]; then
+            cd ./owrt
+            rm -rf ./package/new
+          else
+            echo 'skip remove package!'
+          fi
+          
       
       - name: Fix AX6
         run: |
@@ -163,6 +171,8 @@ jobs:
             echo 'src-git luci https://github.com/immortalwrt/luci.git' >> feeds.conf.default
 
             echo 'src-git packages https://github.com/immortalwrt/packages.git' >> feeds.conf.default
+
+            echo 'src-git smpackage https://github.com/kenzok8/small-package' >> feeds.conf.default
 
           elif [[ "$OWRT_URL" == "https://github.com/qosmio/openwrt-ipq.git" ]]; then
           
