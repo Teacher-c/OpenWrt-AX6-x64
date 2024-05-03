@@ -138,6 +138,9 @@ jobs:
             #kenzok8的small-package库插入到第一行，回退到2024.01.18避免ssr-plus编译失败
             sed -i '1i\src-git smpackage https://github.com/kenzok8/small-package^154af743a2d695030591c1d69f65a710628d8555' feeds.conf.default
 
+            #添加nss插件
+            echo 'src-git nss_packages https://github.com/bitthief/nss-packages.git' feeds.conf.default
+
           elif [[ "$OWRT_URL" == "https://github.com/DoveKi/immortalwrt-nss.git" ]]; then
 
             #sed -i '/luci/d' feeds.conf.default
