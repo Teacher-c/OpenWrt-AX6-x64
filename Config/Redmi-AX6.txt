@@ -51,13 +51,15 @@ CONFIG_PACKAGE_luci-app-wireguard=n
 CONFIG_PACKAGE_luci-app-openvpn-server=n
 
 
-###### NSS ######
+###### NSS 5.10 ######
+## Essential NSS config
+
 CONFIG_ATH11K_MEM_PROFILE_512M=y
 CONFIG_NSS_MEM_PROFILE_MEDIUM=y
-## Essential NSS config
+
 CONFIG_ATH11K_NSS_SUPPORT=y
 CONFIG_PACKAGE_MAC80211_NSS_SUPPORT=y
-CONFIG_PACKAGE_nss-eip-firmware=y
+
 CONFIG_PACKAGE_nss-firmware-default=y
 CONFIG_PACKAGE_nss-firmware-ipq8074=y
 
@@ -72,14 +74,38 @@ CONFIG_PACKAGE_kmod-nss-gmac=y
 CONFIG_PACKAGE_kmod-qca-nss-ecm-64=y
 CONFIG_PACKAGE_kmod-qca-nss-clients-64=y
 CONFIG_PACKAGE_kmod-qca-nss-drv-64=y
+##非64，与64不共存
+#CONFIG_PACKAGE_kmod-qca-nss-ecm=y
+#CONFIG_PACKAGE_kmod-qca-nss-clients=y
+#CONFIG_PACKAGE_kmod-qca-nss-drv=y
 
 # Additional NSS config
 CONFIG_PACKAGE_kmod-qca-nss-drv-pppoe-64=y
 CONFIG_PACKAGE_kmod-qca-nss-drv-vlan-mgr-64=y
 CONFIG_PACKAGE_kmod-qca-nss-drv-bridge-mgr-64=y
+##非64，与64不共存
+#CONFIG_PACKAGE_kmod-qca-nss-drv-profile=y
+#CONFIG_PACKAGE_kmod-qca-nss-drv-capwapmgr=y
+#CONFIG_PACKAGE_kmod-qca-nss-drv-tun6rd=y
+#CONFIG_PACKAGE_kmod-qca-nss-drv-dtlsmgr=y
+#CONFIG_PACKAGE_kmod-qca-nss-drv-l2tpv2=y
+#CONFIG_PACKAGE_kmod-qca-nss-drv-pptp=y
+#CONFIG_PACKAGE_kmod-qca-nss-drv-pppoe=y
+#CONFIG_PACKAGE_kmod-qca-nss-drv-map-t=y
+#CONFIG_PACKAGE_kmod-qca-nss-drv-tunipip6=y
+#CONFIG_PACKAGE_kmod-qca-nss-drv-qdisc=y
+#CONFIG_PACKAGE_kmod-qca-nss-drv-netlink=y
+#CONFIG_PACKAGE_kmod-qca-nss-drv-ipsecmgr=y
+#CONFIG_PACKAGE_kmod-qca-nss-drv-bridge-mgr=y
+#CONFIG_PACKAGE_kmod-qca-nss-drv-vlan-mgr=y
+#CONFIG_PACKAGE_kmod-qca-nss-drv-lag-mgr=y
+#CONFIG_PACKAGE_kmod-qca-nss-drv-gre=y
+#CONFIG_PACKAGE_kmod-qca-nss-drv-ovpn-mgr=y
+#CONFIG_PACKAGE_kmod-qca-nss-drv-ovpn-link=y
+#CONFIG_PACKAGE_kmod-qca-nss-drv-pvxlanmgr=y
 
 #Build Options
-CONFIG_NSS_MEM_PROFILE_MEDIUM=y
+CONFIG_NSS_FIRMWARE_VERSION_11_4=y
 CONFIG_NSS_DRV_BRIDGE_ENABLE=y
 CONFIG_NSS_DRV_CAPWAP_ENABLE=y
 CONFIG_NSS_DRV_C2C_ENABLE=y
@@ -94,6 +120,7 @@ CONFIG_NSS_DRV_IPSEC_ENABLE=y
 CONFIG_NSS_DRV_IPV4_REASM_ENABLE=y
 CONFIG_NSS_DRV_IPV6_ENABLE=y
 CONFIG_NSS_DRV_IPV6_REASM_ENABLE=y
+CONFIG_NSS_DRV_LSO_RX_ENABLE=y
 CONFIG_NSS_DRV_L2TP_ENABLE=y
 CONFIG_NSS_DRV_LAG_ENABLE=y
 CONFIG_NSS_DRV_MAPT_ENABLE=y
@@ -101,7 +128,6 @@ CONFIG_NSS_DRV_MATCH_ENABLE=y
 CONFIG_NSS_DRV_MIRROR_ENABLE=y
 CONFIG_NSS_DRV_OAM_ENABLE=y
 CONFIG_NSS_DRV_PORTID_ENABLE=y
-CONFIG_NSS_DRV_LSO_RX_ENABLE=y
 CONFIG_NSS_DRV_PPPOE_ENABLE=y
 CONFIG_NSS_DRV_PPTP_ENABLE=y
 CONFIG_NSS_DRV_PVXLAN_ENABLE=y
@@ -110,9 +136,9 @@ CONFIG_NSS_DRV_QVPN_ENABLE=y
 CONFIG_NSS_DRV_RMNET_ENABLE=y
 CONFIG_NSS_DRV_SHAPER_ENABLE=y
 CONFIG_NSS_DRV_SJACK_ENABLE=y
+CONFIG_NSS_DRV_UDP_ST_ENABLE=y
 CONFIG_NSS_DRV_TLS_ENABLE=y
 CONFIG_NSS_DRV_TRUSTSEC_ENABLE=y
-CONFIG_NSS_DRV_UDP_ST_ENABLE=y
 CONFIG_NSS_DRV_TRUSTSEC_RX_ENABLE=y
 CONFIG_NSS_DRV_TSTAMP_ENABLE=y
 CONFIG_NSS_DRV_TUN6RD_ENABLE=y
@@ -124,3 +150,4 @@ CONFIG_NSS_DRV_WIFIOFFLOAD_ENABLE=y
 CONFIG_NSS_DRV_WIFI_EXT_VDEV_ENABLE=y
 CONFIG_NSS_DRV_WIFI_MESH_ENABLE=y
 CONFIG_NSS_DRV_WIFI_LEGACY_ENABLE=y
+########NSS END################
