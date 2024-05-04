@@ -99,7 +99,7 @@ jobs:
             
             # Patch
             cp -rf $GITHUB_WORKSPACE/general/AX6/target/linux/ipq807x/image/generic.mk target/linux/ipq807x/image/
-            rm -rf package/lean/shortcut-fe
+            #rm -rf package/lean/shortcut-fe
             echo 'Fix AX6 Done!'
 
           elif [[ "$OWRT_URL" == "https://github.com/DoveKi/immortalwrt-nss.git" ]]; then
