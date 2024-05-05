@@ -59,6 +59,8 @@ return baseclass.extend({
 					stats['max'] = stat[2];
 					return stats;
 				  }
+			  }
+			}))
 		]);
 	},
 
