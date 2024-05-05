@@ -151,7 +151,7 @@ jobs:
             
             #sed -i '/packages/d' feeds.conf.default
 
-            sed -i '/nss_packages/d' feeds.conf.default
+            #sed -i '/nss_packages/d' feeds.conf.default
 
             sed -i '/sqm_scripts_nss/d' feeds.conf.default
 
@@ -163,7 +163,7 @@ jobs:
 
             #echo 'src-git smpackage https://github.com/kenzok8/small-package^15366330c7d06e3a455598363c2463b769396bfe' >> feeds.conf.default
 
-            echo 'src-git nss_packages https://github.com/qosmio/nss-packages.git;NSS-12.4-K6.x' >> feeds.conf.default
+            #echo 'src-git nss_packages https://github.com/qosmio/nss-packages.git;NSS-12.4-K6.x' >> feeds.conf.default
 
             echo 'src-git smpackage https://github.com/kenzok8/small-package' >> feeds.conf.default
             
