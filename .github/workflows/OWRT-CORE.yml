@@ -106,7 +106,7 @@ jobs:
             cp -rf $GITHUB_WORKSPACE/general/AX6/qca-nss-ecm-bonding-error/606-qca-nss-ecm-bonding-add-bond_get_id.patch target/linux/ipq807x/patches-5.10/
             cp -rf $GITHUB_WORKSPACE/general/AX6/qca-nss-ecm-bonding-error/607-qca-nss-ecm-Add-bridge-join-and-leave-netdev-cmds.patch target/linux/ipq807x/patches-5.10/
 
-            rm -rf package/lean/shortcut-fe
+            #rm -rf package/lean/shortcut-fe
             echo 'Fix AX6 Done!'
 
           elif [[ "$OWRT_URL" == "https://github.com/DoveKi/immortalwrt-nss.git" ]]; then
