@@ -96,11 +96,17 @@ jobs:
             
             # 因AX6无线驱动问题，暂时维持源码版本在20230501
             git reset --hard 26f3634631244eedfbdfd61ea6cc3a2d7f5d896f
-            #git reset --hard 06556882d61447641e343aad6d2ea6815aaf4ae3
             
-            # Patch
+            # 重新添加支持AX6机型
             cp -rf $GITHUB_WORKSPACE/general/AX6/target/linux/ipq807x/image/generic.mk target/linux/ipq807x/image/
-            #rm -rf package/lean/shortcut-fe
+
+            # 补丁qca-nss-ecm-bonding-error
+
+            cp -rf $GITHUB_WORKSPACE/general/AX6/qca-nss-ecm-bonding-error/Makefile package/qca/nss/qca-nss-clients-64/
+            cp -rf $GITHUB_WORKSPACE/general/AX6/qca-nss-ecm-bonding-error/606-qca-nss-ecm-bonding-add-bond_get_id.patch target/linux/ipq807x/patches-5.10/
+            cp -rf $GITHUB_WORKSPACE/general/AX6/qca-nss-ecm-bonding-error/607-qca-nss-ecm-Add-bridge-join-and-leave-netdev-cmds.patch target/linux/ipq807x/patches-5.10/
+
+            rm -rf package/lean/shortcut-fe
             echo 'Fix AX6 Done!'
 
           elif [[ "$OWRT_URL" == "https://github.com/DoveKi/immortalwrt-nss.git" ]]; then
