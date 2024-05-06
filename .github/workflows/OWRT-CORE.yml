@@ -154,7 +154,7 @@ jobs:
             
           fi
           
-      - name: Update Feeds And Install Feeds
+      - name: Update And Install Feeds
         run: |
           cd ./owrt
 
