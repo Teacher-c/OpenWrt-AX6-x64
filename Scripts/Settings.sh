@@ -28,8 +28,8 @@ if [[ "$OWRT_URL" == "https://github.com/DoveKi/immortalwrt-nss.git" ]]; then
   rm -rf $(find ./feeds/packages/ -type d -regex ".*\(mosdns\).*")
   
   #添加nss占用信息显示
-  cp -rf $GITHUB_WORKSPACE/general/AX6/nss-status/10_system.js feeds/luci/modules/luci-mod-status/htdocs/luci-static/resources/view/status/include/
-  cp -rf $GITHUB_WORKSPACE/general/AX6/nss-status/luci-mod-status.json feeds/luci/modules/luci-mod-status/root/usr/share/rpcd/acl.d/
+  #cp -rf $GITHUB_WORKSPACE/general/AX6/nss-status/10_system.js feeds/luci/modules/luci-mod-status/htdocs/luci-static/resources/view/status/include/
+  #cp -rf $GITHUB_WORKSPACE/general/AX6/nss-status/luci-mod-status.json feeds/luci/modules/luci-mod-status/root/usr/share/rpcd/acl.d/
   
 fi
 
