@@ -47,7 +47,7 @@ fi
 
 if [[ "$OWRT_URL" == "https://github.com/TerryLip/AX6NSS.git" ]]; then
 
-#移除原插件库用immortalwrt的代替
+  #移除原插件库用immortalwrt的代替
   rm -rf feeds/luci/modules/luci-base
   rm -rf feeds/luci/modules/luci-mod-status
 
@@ -57,6 +57,9 @@ if [[ "$OWRT_URL" == "https://github.com/TerryLip/AX6NSS.git" ]]; then
   rm -rf luci_tmp
 
   rm -rf feeds/nss-packages/utils/mhz
+  
+  删除作者自定义插件
+  rm -rf package/new
 
 fi
 
