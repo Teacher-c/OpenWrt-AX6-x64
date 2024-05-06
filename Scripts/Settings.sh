@@ -74,6 +74,3 @@ if [[ $OWRT_URL == *"lede"* ]] ; then
   #修改默认时间格式
   sed -i 's/os.date()/os.date("%Y-%m-%d %H:%M:%S %A")/g' $(find ./package/*/autocore/files/ -type f -name "index.htm")
 fi
-
-./scripts/feeds update -a
-./scripts/feeds install -a
