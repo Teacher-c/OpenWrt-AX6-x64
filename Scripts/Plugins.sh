@@ -5,6 +5,10 @@ git clone --depth=1 --single-branch --branch $(echo $OWRT_URL | grep -iq "lede" 
 #注释掉，不要Argon主题配置
 #git clone --depth=1 --single-branch --branch $(echo $OWRT_URL | grep -iq "lede" && echo "18.06" || echo "master") https://github.com/jerrykuku/luci-app-argon-config.git
 
+#mosdns
+git clone https://github.com/sbwml/luci-app-mosdns -b v5 package/mosdns
+git clone https://github.com/sbwml/v2ray-geodata package/v2ray-geodata
+
 #Pass Wall
 #git clone --depth=1 --single-branch --branch "main" https://github.com/xiaorouji/openwrt-passwall.git ./pw_luci
 #git clone --depth=1 --single-branch --branch "main" https://github.com/xiaorouji/openwrt-passwall-packages.git ./pw_packages
