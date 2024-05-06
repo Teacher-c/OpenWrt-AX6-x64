@@ -1,8 +1,8 @@
 #!/bin/bash
 
 #删除官方和第三方仓库argon,design主题,openclash,mosdns
-rm -rf $(find ./feeds/luci/ -type d -regex ".*\(argon\|design\|mosdns\|openclash\).*")
-rm -rf $(find ./feeds/packages/ -type d -regex ".*\(argon\|design\|mosdns\|openclash\).*")
+rm -rf $(find ./feeds/luci/ -type d -regex ".*\(argon\|design\|mosdns\|v2ray-geodata\|openclash\).*")
+rm -rf $(find ./feeds/packages/ -type d -regex ".*\(argon\|design\|mosdns\|v2ray-geodata\|openclash\).*")
 
 #如果引入smpackage库，则删除冲突插件和argon主题
 #rm -rf $(find ./feeds/smpackage/ -type d -regex ".*\(argon\|design\|passwall\|openclash\).*")
