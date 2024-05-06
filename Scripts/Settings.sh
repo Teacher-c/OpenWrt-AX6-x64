@@ -8,14 +8,14 @@ rm -rf $(find ./feeds/packages/ -type d -regex ".*\(argon\|design\|mosdns\|v2ray
 #rm -rf $(find ./feeds/smpackage/ -type d -regex ".*\(argon\|design\|passwall\|openclash\).*")
 
 #small-package推荐删除防止与lede库冲突，immortalwrt应该也是？
-#rm -rf feeds/smpackage/{base-files,dnsmasq,firewall*,fullconenat,libnftnl,nftables,ppp,opkg,ucl,upx,vsftpd-alt,miniupnpd-iptables,wireless-regdb}
+#rm -rf ./feeds/smpackage/{base-files,dnsmasq,firewall*,fullconenat,libnftnl,nftables,ppp,opkg,ucl,upx,vsftpd-alt,miniupnpd-iptables,wireless-regdb}
   
 
 if [[ "$OWRT_URL" == *"lede"* ]]; then
   
   #修复SSR-Plus shadowsocksr-libev libopenssl-legacy 依赖错误问题。
   #因已回退插件库，不需要修复。
-  #sed -i 's/ +libopenssl-legacy//g' feeds/smpackage/shadowsocksr-libev/Makefile
+  #sed -i 's/ +libopenssl-legacy//g' ./feeds/smpackage/shadowsocksr-libev/Makefile
   echo 'Skip SSR Plus Fix'
   
 fi
@@ -27,8 +27,8 @@ if [[ "$OWRT_URL" == "https://github.com/DoveKi/immortalwrt-nss.git" ]]; then
   #rm -rf $(find ./feeds/packages/ -type d -regex ".*\(mosdns\).*")
   
   #添加nss占用信息显示
-  #cp -rf $GITHUB_WORKSPACE/general/AX6/nss-status/10_system.js feeds/luci/modules/luci-mod-status/htdocs/luci-static/resources/view/status/include/
-  #cp -rf $GITHUB_WORKSPACE/general/AX6/nss-status/luci-mod-status.json feeds/luci/modules/luci-mod-status/root/usr/share/rpcd/acl.d/
+  cp -rf $GITHUB_WORKSPACE/general/AX6/nss-status/10_system.js ./feeds/luci/modules/luci-mod-status/htdocs/luci-static/resources/view/status/include/
+  cp -rf $GITHUB_WORKSPACE/general/AX6/nss-status/luci-mod-status.json ./feeds/luci/modules/luci-mod-status/root/usr/share/rpcd/acl.d/
 
   echo 'skip'
   
