@@ -23,6 +23,7 @@ CONFIG_PACKAGE_coremark=n
 CONFIG_PACKAGE_ua2f=n
 
 #luci删除插件
+CONFIG_PACKAGE_luci-app-filetransfer=n
 CONFIG_PACKAGE_luci-app-ssr-plus=n
 CONFIG_PACKAGE_luci-app-passwall=n
 CONFIG_PACKAGE_luci-app-airconnect=n
@@ -42,3 +43,5 @@ CONFIG_PACKAGE_luci-app-adbyby-plus=n
 CONFIG_PACKAGE_luci-app-unblockmusic=n
 CONFIG_PACKAGE_luci-app-vsftpd=n
 CONFIG_PACKAGE_luci-app-mwan3=n
+CONFIG_PACKAGE_luci-app-mwan3helper-chinaroute=n
+CONFIG_PACKAGE_luci-app-eqos-mtk=n
