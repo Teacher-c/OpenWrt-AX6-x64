@@ -1,5 +1,5 @@
 #CI项目名
-name: Mi-AC2100-Immortal
+name: XiaoMi-AC2100-Immortal
 
 on:
   #自动编译：每天早上4点
@@ -18,7 +18,7 @@ jobs:
     uses: ./.github/workflows/OWRT-CORE.yml
     with:
       #编译平台
-      OWRT_TARGET: Mi-AC2100
+      OWRT_TARGET: XiaoMi-AC2100
       #默认主题
       OWRT_THEME: argon
       #默认主机名
