@@ -153,16 +153,16 @@ jobs:
           if [[ "$OWRT_TARGET" == "Redmi-AX6-stock" && "$OWRT_URL" == "https://github.com/DoveKi/immortalwrt-nss.git" ]]; then
             #回退到2024.1.17
             sed -i '/sqm_scripts_nss/d' feeds.conf.default
+
+            sed -i '/packages/d' feeds.conf.default
             
             sed -i '/luci/d' feeds.conf.default
 
-            #sed -i '/packages/d' feeds.conf.default
+            echo 'src-git packages https://github.com/immortalwrt/packages.git^43578aaee96950bc9d4c3e05c28ced365147cf77' >> feeds.conf.default
 
-            #echo 'src-git packages https://github.com/immortalwrt/packages.git^43578aaee96950bc9d4c3e05c28ced365147cf77' >> feeds.conf.default
+            echo 'src-git luci https://github.com/immortalwrt/luci.git^1a895f6b8698d8c19f7948fc6be1b9eb443f5764' >> feeds.conf.default
 
-            #echo 'src-git luci https://github.com/immortalwrt/luci.git^1a895f6b8698d8c19f7948fc6be1b9eb443f5764' >> feeds.conf.default
-
-            echo 'src-git luci https://github.com/Teacher-c/luci.git' >> feeds.conf.default
+            #echo 'src-git luci https://github.com/Teacher-c/luci.git' >> feeds.conf.default
 
             #sed -i '/nss_packages/d' feeds.conf.default
 
