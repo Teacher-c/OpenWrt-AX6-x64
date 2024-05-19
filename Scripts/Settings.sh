@@ -23,10 +23,10 @@ fi
 if [[ "$OWRT_URL" == "https://github.com/DoveKi/immortalwrt-nss.git" ]]; then
   
   #添加nss占用信息显示
-  #rm -rf feeds/luci/modules/luci-mod-status/htdocs/luci-static/resources/view/status/include/10_system.js
-  #rm -rf feeds/luci/modules/luci-mod-status/root/usr/share/rpcd/acl.d/luci-mod-status.json
-  #cp -rf $GITHUB_WORKSPACE/general/AX6/nss-status/10_system.js feeds/luci/modules/luci-mod-status/htdocs/luci-static/resources/view/status/include/
-  #cp -rf $GITHUB_WORKSPACE/general/AX6/nss-status/luci-mod-status.json feeds/luci/modules/luci-mod-status/root/usr/share/rpcd/acl.d/
+  rm -rf feeds/luci/modules/luci-mod-status/htdocs/luci-static/resources/view/status/include/10_system.js
+  rm -rf feeds/luci/modules/luci-mod-status/root/usr/share/rpcd/acl.d/luci-mod-status.json
+  cp -rf $GITHUB_WORKSPACE/general/AX6/nss-status/10_system.js feeds/luci/modules/luci-mod-status/htdocs/luci-static/resources/view/status/include/
+  cp -rf $GITHUB_WORKSPACE/general/AX6/nss-status/luci-mod-status.json feeds/luci/modules/luci-mod-status/root/usr/share/rpcd/acl.d/
   echo 'skip'
 fi
 
