@@ -1,11 +1,11 @@
 #!/bin/bash
 
 #删除官方和第三方仓库argon,design主题,openclash,mosdns
-rm -rf $(find ./feeds/luci/ -type d -regex ".*\(argon\|design\|mosdns\|v2ray-geodata\|openclash\).*")
-rm -rf $(find ./feeds/packages/ -type d -regex ".*\(argon\|design\|mosdns\|v2ray-geodata\|openclash\).*")
+rm -rf $(find ./feeds/luci/ -type d -regex ".*\(argon\|design\|mosdns\|v2ray-geodata\|passwall\|openclash\).*")
+rm -rf $(find ./feeds/packages/ -type d -regex ".*\(argon\|design\|mosdns\|v2ray-geodata\|passwall\|openclash\).*")
 
 #如果引入smpackage库，则删除冲突插件和argon主题
-#rm -rf $(find ./feeds/smpackage/ -type d -regex ".*\(argon\|design\|passwall\|openclash\).*")
+#rm -rf $(find ./feeds/smpackage/ -type d -regex ".*\(argon\|design\|mosdns\|v2ray-geodata\|passwall\|openclash\).*")
 
 #small-package推荐删除防止与lede库冲突，immortalwrt应该也是？
 #rm -rf ./feeds/smpackage/{base-files,dnsmasq,firewall*,fullconenat,libnftnl,nftables,ppp,opkg,ucl,upx,vsftpd-alt,miniupnpd-iptables,wireless-regdb}
@@ -21,9 +21,6 @@ if [[ "$OWRT_TARGET" == "Redmi-AX6" && "$OWRT_URL" == "https://github.com/coolsn
 fi
 
 if [[ "$OWRT_URL" == "https://github.com/DoveKi/immortalwrt-nss.git" ]]; then
-
-  #删除mosdns避免与smpacksges冲突
-  #rm -rf $(find ./feeds/packages/ -type d -regex ".*\(mosdns\).*")
   
   #添加nss占用信息显示
   rm -rf feeds/luci/modules/luci-mod-status/htdocs/luci-static/resources/view/status/include/10_system.js
@@ -67,5 +64,6 @@ if [[ $OWRT_URL == *"lede"* ]] ; then
   #修改默认时间格式
   sed -i 's/os.date()/os.date("%Y-%m-%d %H:%M:%S %A")/g' $(find ./package/*/autocore/files/ -type f -name "index.htm")
 fi
+
 ./scripts/feeds update -a
 ./scripts/feeds install -a
