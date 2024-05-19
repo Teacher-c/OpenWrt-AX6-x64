@@ -1,3 +1,4 @@
+#Redmi AX6
 # Select the target platform
 CONFIG_TARGET_ipq807x=y
 CONFIG_TARGET_ipq807x_generic=y
