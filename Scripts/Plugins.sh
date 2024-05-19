@@ -1,11 +1,9 @@
 #!/bin/bash
 
 #Argon Theme
-#git clone --depth=1 --single-branch --branch $(echo $OWRT_URL | grep -iq "lede" && echo "18.06" || echo "master") https://github.com/jerrykuku/luci-theme-argon.git
 git clone --depth=1 --single-branch --branch $(echo $OWRT_URL | grep -Eiq "lede|padavanonly" && echo "18.06" || echo "master") https://github.com/jerrykuku/luci-theme-argon.git
 
 #注释掉，不要Argon主题配置
-#git clone --depth=1 --single-branch --branch $(echo $OWRT_URL | grep -iq "lede" && echo "18.06" || echo "master") https://github.com/jerrykuku/luci-app-argon-config.git
 #git clone --depth=1 --single-branch --branch $(echo $OWRT_URL | grep -Eiq "lede|padavanonly" && echo "18.06" || echo "master") https://github.com/jerrykuku/luci-app-argon-config.git
 
 #mosdns
