@@ -80,7 +80,7 @@ jobs:
         run: |
           git clone $OWRT_URL ./owrt
       
-      - name: Fix AX6
+      - name: Fix And Revert
         run: |
           cd ./owrt
           
