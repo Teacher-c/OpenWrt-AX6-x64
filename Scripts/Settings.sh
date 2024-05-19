@@ -47,6 +47,9 @@ if [[ "$OWRT_URL" == "https://github.com/TerryLip/AX6NSS.git" ]]; then
   删除作者自定义插件
   rm -rf package/new
 
+  ./scripts/feeds update -a
+  ./scripts/feeds install -a
+
 fi
 
 #修改默认主题
@@ -64,6 +67,3 @@ if [[ $OWRT_URL == *"lede"* ]] ; then
   #修改默认时间格式
   sed -i 's/os.date()/os.date("%Y-%m-%d %H:%M:%S %A")/g' $(find ./package/*/autocore/files/ -type f -name "index.htm")
 fi
-
-./scripts/feeds update -a
-./scripts/feeds install -a
