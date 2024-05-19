@@ -154,13 +154,13 @@ jobs:
             #回退到2024.4.30 merge office source
             sed -i '/sqm_scripts_nss/d' feeds.conf.default
 
-            sed -i '/packages/d' feeds.conf.default
+            #sed -i '/packages/d' feeds.conf.default
             
-            sed -i '/luci/d' feeds.conf.default
+            #sed -i '/luci/d' feeds.conf.default
 
-            echo 'src-git packages https://github.com/immortalwrt/packages.git^7ad67420c6d67e789142f05dc28ed5151583cc47' >> feeds.conf.default
+            #echo 'src-git packages https://github.com/immortalwrt/packages.git^7ad67420c6d67e789142f05dc28ed5151583cc47' >> feeds.conf.default
 
-            echo 'src-git luci https://github.com/immortalwrt/luci.git^11f9385497dae5117ee8d9e35b2883d2905829f4' >> feeds.conf.default
+            #echo 'src-git luci https://github.com/immortalwrt/luci.git^11f9385497dae5117ee8d9e35b2883d2905829f4' >> feeds.conf.default
 
             #echo 'src-git luci https://github.com/Teacher-c/luci.git' >> feeds.conf.default
 
