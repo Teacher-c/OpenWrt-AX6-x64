@@ -111,7 +111,7 @@ jobs:
 
           fi
 
-          if [[ "$OWRT_TARGET" == "Xiaomi-CR6608" && "$OWRT_URL" == "https://github.com/immortalwrt/immortalwrt.git" ]]; then
+          if [[ "$OWRT_TARGET" == "Xiaomi-AC2100" && "$OWRT_URL" == "https://github.com/immortalwrt/immortalwrt.git" ]]; then
             
             #回退到2024.1.17
             git reset --hard 7772a67f190f18ec43a0e4db3dd6a1e7d0b52a1a
