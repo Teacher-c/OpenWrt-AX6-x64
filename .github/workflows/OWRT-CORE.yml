@@ -84,7 +84,7 @@ jobs:
         run: |
           cd ./owrt
           
-          if [[ "$OWRT_TARGET" == "Redmi-AX6" && "$OWRT_URL" == *"lede"* ]]; then
+          if [[ "$OWRT_TARGET" == "Redmi-AX6" && "$OWRT_URL" == "https://github.com/coolsnowwolf/lede.git" ]]; then
             
             # 因AX6无线驱动问题，暂时维持源码版本在20230501
             git reset --hard 26f3634631244eedfbdfd61ea6cc3a2d7f5d896f
@@ -104,11 +104,25 @@ jobs:
             
           fi
 
+          if [[ "$OWRT_TARGET" == "Xiaomi-CR6608" && "$OWRT_URL" == "https://github.com/immortalwrt/immortalwrt.git" ]]; then
+            
+            #回退到2024.1.17
+            git reset --hard 7772a67f190f18ec43a0e4db3dd6a1e7d0b52a1a
+
+          fi
+
+          if [[ "$OWRT_TARGET" == "Xiaomi-CR6608" && "$OWRT_URL" == "https://github.com/immortalwrt/immortalwrt.git" ]]; then
+            
+            #回退到2024.1.17
+            git reset --hard 7772a67f190f18ec43a0e4db3dd6a1e7d0b52a1a
+
+          fi
+
       - name: Load custom feeds
         run: |
           cd ./owrt
           
-          if [[ "$OWRT_TARGET" == "Redmi-AX6" && "$OWRT_URL" == *"lede"* ]]; then
+          if [[ "$OWRT_TARGET" == "Redmi-AX6" && "$OWRT_URL" == "https://github.com/coolsnowwolf/lede.git" ]]; then
           
             #编辑lede库源feeds.conf.default文件，删除lede的packages、routing、luci源，下面重新添加方便回滚版本
             
@@ -132,7 +146,7 @@ jobs:
             
           fi
 
-          if [[ "$OWRT_URL" == "https://github.com/DoveKi/immortalwrt-nss.git" ]]; then
+          if [[ "$OWRT_TARGET" == "Redmi-AX6" && "$OWRT_URL" == "https://github.com/DoveKi/immortalwrt-nss.git" ]]; then
 
             sed -i '/luci/d' feeds.conf.default
 
