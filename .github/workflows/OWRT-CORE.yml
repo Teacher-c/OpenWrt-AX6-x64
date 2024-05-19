@@ -108,7 +108,8 @@ jobs:
             
             #回退到2024.1.17
             #git reset --hard 7772a67f190f18ec43a0e4db3dd6a1e7d0b52a1a
-            echo "skip"
+            
+            echo 'skip'
 
           fi
 
@@ -116,7 +117,8 @@ jobs:
             
             #回退到2024.1.17
             #git reset --hard 7772a67f190f18ec43a0e4db3dd6a1e7d0b52a1a
-            echo "skip"
+            
+            echo 'skip'
 
           fi
 
@@ -179,7 +181,7 @@ jobs:
 
             #echo 'src-git luci https://github.com/immortalwrt/luci.git^1a895f6b8698d8c19f7948fc6be1b9eb443f5764' >> feeds.conf.default
 
-            echo "skip"
+            echo 'skip'
 
           fi
 
@@ -194,7 +196,7 @@ jobs:
 
             #echo 'src-git luci https://github.com/immortalwrt/luci.git^1a895f6b8698d8c19f7948fc6be1b9eb443f5764' >> feeds.conf.default
 
-            echo "skip"
+            echo 'skip'
 
           fi
             
