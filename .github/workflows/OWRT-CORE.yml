@@ -107,14 +107,16 @@ jobs:
           if [[ "$OWRT_TARGET" == "Xiaomi-CR6608" && "$OWRT_URL" == "https://github.com/immortalwrt/immortalwrt.git" ]]; then
             
             #回退到2024.1.17
-            git reset --hard 7772a67f190f18ec43a0e4db3dd6a1e7d0b52a1a
+            #git reset --hard 7772a67f190f18ec43a0e4db3dd6a1e7d0b52a1a
+            echo "skip"
 
           fi
 
           if [[ "$OWRT_TARGET" == "Xiaomi-AC2100" && "$OWRT_URL" == "https://github.com/immortalwrt/immortalwrt.git" ]]; then
             
             #回退到2024.1.17
-            git reset --hard 7772a67f190f18ec43a0e4db3dd6a1e7d0b52a1a
+            #git reset --hard 7772a67f190f18ec43a0e4db3dd6a1e7d0b52a1a
+            echo "skip"
 
           fi
 
@@ -164,33 +166,35 @@ jobs:
 
             #echo 'src-git nss_packages https://github.com/qosmio/nss-packages.git;NSS-12.4-K6.x' >> feeds.conf.default
             
-            #暂时不需要small-package
-            #echo 'src-git smpackage https://github.com/kenzok8/small-package' >> feeds.conf.default
           fi
 
           if [[ "$OWRT_TARGET" == "Xiaomi-CR6608" && "$OWRT_URL" == "https://github.com/immortalwrt/immortalwrt.git" ]]; then
             #回退到2024.1.17
             
-            sed -i '/luci/d' feeds.conf.default
+            #sed -i '/luci/d' feeds.conf.default
 
-            sed -i '/packages/d' feeds.conf.default
+            #sed -i '/packages/d' feeds.conf.default
 
-            echo 'src-git packages https://github.com/immortalwrt/packages.git^43578aaee96950bc9d4c3e05c28ced365147cf77' >> feeds.conf.default
+            #echo 'src-git packages https://github.com/immortalwrt/packages.git^43578aaee96950bc9d4c3e05c28ced365147cf77' >> feeds.conf.default
 
-            echo 'src-git luci https://github.com/immortalwrt/luci.git^1a895f6b8698d8c19f7948fc6be1b9eb443f5764' >> feeds.conf.default
+            #echo 'src-git luci https://github.com/immortalwrt/luci.git^1a895f6b8698d8c19f7948fc6be1b9eb443f5764' >> feeds.conf.default
+
+            echo "skip"
 
           fi
 
           if [[ "$OWRT_TARGET" == "Xiaomi-AC2100" && "$OWRT_URL" == "https://github.com/immortalwrt/immortalwrt.git" ]]; then
             #回退到2024.1.17
             
-            sed -i '/luci/d' feeds.conf.default
+            #sed -i '/luci/d' feeds.conf.default
 
-            sed -i '/packages/d' feeds.conf.default
+            #sed -i '/packages/d' feeds.conf.default
 
-            echo 'src-git packages https://github.com/immortalwrt/packages.git^43578aaee96950bc9d4c3e05c28ced365147cf77' >> feeds.conf.default
+            #echo 'src-git packages https://github.com/immortalwrt/packages.git^43578aaee96950bc9d4c3e05c28ced365147cf77' >> feeds.conf.default
 
-            echo 'src-git luci https://github.com/immortalwrt/luci.git^1a895f6b8698d8c19f7948fc6be1b9eb443f5764' >> feeds.conf.default
+            #echo 'src-git luci https://github.com/immortalwrt/luci.git^1a895f6b8698d8c19f7948fc6be1b9eb443f5764' >> feeds.conf.default
+
+            echo "skip"
 
           fi
             
