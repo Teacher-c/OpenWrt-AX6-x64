@@ -11,7 +11,7 @@ rm -rf $(find ./feeds/packages/ -type d -regex ".*\(argon\|design\|mosdns\|v2ray
 #rm -rf ./feeds/smpackage/{base-files,dnsmasq,firewall*,fullconenat,libnftnl,nftables,ppp,opkg,ucl,upx,vsftpd-alt,miniupnpd-iptables,wireless-regdb}
   
 
-if [[ "$OWRT_URL" == *"lede"* ]]; then
+if [[ "$OWRT_TARGET" == "Redmi-AX6" && "$OWRT_URL" == "https://github.com/coolsnowwolf/lede.git" ]]; then
   
   #修复SSR-Plus shadowsocksr-libev libopenssl-legacy 依赖错误问题。
   #因已回退插件库，不需要修复。
@@ -30,17 +30,6 @@ if [[ "$OWRT_URL" == "https://github.com/DoveKi/immortalwrt-nss.git" ]]; then
   rm -rf feeds/luci/modules/luci-mod-status/root/usr/share/rpcd/acl.d/luci-mod-status.json
   cp -rf $GITHUB_WORKSPACE/general/AX6/nss-status/10_system.js feeds/luci/modules/luci-mod-status/htdocs/luci-static/resources/view/status/include/
   cp -rf $GITHUB_WORKSPACE/general/AX6/nss-status/luci-mod-status.json feeds/luci/modules/luci-mod-status/root/usr/share/rpcd/acl.d/
-  
-fi
-
-
-if [[ "$OWRT_URL" == "https://github.com/immortalwrt/immortalwrt.git" ]]; then
-
-  #删除mosdns避免与smpacksges冲突
-  #rm -rf $(find ./feeds/packages/ -type d -regex ".*\(mosdns\).*")
-
-  #添加支持firewall4的turboacc加速
-  curl -sSL https://raw.githubusercontent.com/chenmozhijin/turboacc/luci/add_turboacc.sh -o add_turboacc.sh && bash add_turboacc.sh
   
 fi
 
