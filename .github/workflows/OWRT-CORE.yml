@@ -146,7 +146,7 @@ jobs:
             
           fi
 
-          if [[ "$OWRT_TARGET" == "Redmi-AX6" && "$OWRT_URL" == "https://github.com/DoveKi/immortalwrt-nss.git" ]]; then
+          if [[ "$OWRT_TARGET" == "Redmi-AX6-stock" && "$OWRT_URL" == "https://github.com/DoveKi/immortalwrt-nss.git" ]]; then
             #回退到2024.1.17
             sed -i '/sqm_scripts_nss/d' feeds.conf.default
             
