@@ -223,7 +223,7 @@ jobs:
           
           rm -rf ./tmp* ./.config*
           
-          cat $GITHUB_WORKSPACE/Config/$OWRT_TARGET.txt $GITHUB_WORKSPACE/Config/Base_Package.txt $GITHUB_WORKSPACE/Config/Del_Package.txt >> .config
+          cat $GITHUB_WORKSPACE/Config/$OWRT_TARGET.txt $GITHUB_WORKSPACE/Config/Del_Package.txt >> .config
           
           if [[ "$OWRT_TARGET" == *"AX6"* || "$OWRT_TARGET" == *"X64"* ]]; then
           
