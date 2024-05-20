@@ -31,25 +31,10 @@ if [[ "$OWRT_URL" == "https://github.com/DoveKi/immortalwrt-nss.git" ]]; then
 fi
 
 
-if [[ "$OWRT_URL" == "https://github.com/TerryLip/AX6NSS.git" ]]; then
+if [[ "$OWRT_URL" == "https://github.com/qosmio/openwrt-ipq.git" ]]; then
 
-  #移除原插件库用immortalwrt的代替
-  rm -rf feeds/luci/modules/luci-base
-  rm -rf feeds/luci/modules/luci-mod-status
 
-  git clone https://github.com/immortalwrt/luci.git luci_tmp
-  cp -rf luci_tmp/modules/luci-base feeds/luci/modules/
-  cp -rf luci_tmp/modules/luci-mod-status feeds/luci/modules/
-  rm -rf luci_tmp
-
-  rm -rf feeds/nss-packages/utils/mhz
-  
-  删除作者自定义插件
-  rm -rf package/new
-
-  ./scripts/feeds update -a
-  ./scripts/feeds install -a
-
+  echo 'skip'
 fi
 
 #修改默认主题
