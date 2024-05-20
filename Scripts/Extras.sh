@@ -34,6 +34,7 @@ fi
 
 
 if [[ "$OWRT_URL" == "https://github.com/padavanonly/immortalwrt.git" ]]; then
+  echo "CONFIG_PACKAGE_zram-swap=n" >> .config
   echo "CONFIG_PACKAGE_miniupnpd=n" >> .config
   echo "CONFIG_PACKAGE_luci-app-upnp=n" >> .config
   echo "CONFIG_PACKAGE_qos-scripts=n" >> .config
