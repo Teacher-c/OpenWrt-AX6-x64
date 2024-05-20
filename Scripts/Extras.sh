@@ -31,7 +31,3 @@ if [[ $OWRT_URL != *"lede"* ]] ; then
   echo "CONFIG_PACKAGE_luci=y" >> .config
   echo "CONFIG_LUCI_LANG_zh_Hans=y" >> .config
 fi
-
-if [[ "$OWRT_URL" == "https://github.com/Teacher-c/openwrt-ipq.git" ]]; then
-  echo "CONFIG_PACKAGE_dnsmasq=n" >> .config
-fi
