@@ -31,3 +31,11 @@ if [[ $OWRT_URL != *"lede"* ]] ; then
   echo "CONFIG_PACKAGE_luci=y" >> .config
   echo "CONFIG_LUCI_LANG_zh_Hans=y" >> .config
 fi
+
+if [[ "$OWRT_URL" == "https://github.com/padavanonly/immortalwrt.git" ]]; then
+  echo "CONFIG_PACKAGE_miniupnpd=n" >> .config
+  echo "CONFIG_PACKAGE_luci-app-upnp=n" >> .config
+  echo "CONFIG_PACKAGE_luci-app-mwan3helper-chinaroute=n" >> .config
+  echo "CONFIG_PACKAGE_luci-app-eqos-mtk=n" >> .config
+  echo "CONFIG_PACKAGE_qos-scripts=n" >> .config
+fi
