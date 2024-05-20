@@ -35,6 +35,3 @@ CONFIG_PACKAGE_luci-app-ipsec-vpnd=n
 CONFIG_PACKAGE_luci-app-adbyby-plus=n
 CONFIG_PACKAGE_luci-app-unblockmusic=n
 CONFIG_PACKAGE_luci-app-vsftpd=n
-CONFIG_PACKAGE_luci-app-mwan3=n
-CONFIG_PACKAGE_luci-app-mwan3helper-chinaroute=n
-CONFIG_PACKAGE_luci-app-eqos-mtk=n
