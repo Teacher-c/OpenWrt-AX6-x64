@@ -38,6 +38,10 @@ if [[ "$OWRT_URL" == "https://github.com/Teacher-c/openwrt-ipq.git" ]]; then
   rm -rf feeds/luci/modules/luci-mod-status/root/usr/share/rpcd/acl.d/luci-mod-status.json
   cp -rf $GITHUB_WORKSPACE/general/AX6/nss-status/openwrt/10_system.js feeds/luci/modules/luci-mod-status/htdocs/luci-static/resources/view/status/include/
   cp -rf $GITHUB_WORKSPACE/general/AX6/nss-status/openwrt/luci-mod-status.json feeds/luci/modules/luci-mod-status/root/usr/share/rpcd/acl.d/
+
+  #删除dnsmasq
+  rm -rf package/network/services/dnsmasq
+  
   #echo 'skip'
 fi
 
