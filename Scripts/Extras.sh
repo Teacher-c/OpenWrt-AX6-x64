@@ -32,7 +32,6 @@ if [[ $OWRT_URL != *"lede"* ]] ; then
   echo "CONFIG_LUCI_LANG_zh_Hans=y" >> .config
 fi
 
-
 if [[ "$OWRT_URL" == "https://github.com/padavanonly/immortalwrt.git" ]]; then
   echo "CONFIG_PACKAGE_zram-swap=n" >> .config
   echo "CONFIG_PACKAGE_miniupnpd=n" >> .config
@@ -44,4 +43,15 @@ fi
 
 if [[ "$OWRT_URL" == "https://github.com/Teacher-c/openwrt-ipq.git" ]]; then
   echo "CONFIG_PACKAGE_zerotier=y" >> .config
+  echo "CONFIG_PACKAGE_dnsmasq=n" >> .config
+  echo "CONFIG_DEFAULT_dnsmasq-full=y" >> .config
+  echo "CONFIG_PACKAGE_dnsmasq-full=y" >> .config
+  echo "CONFIG_PACKAGE_dnsmasq_full_dhcp=y" >> .config
+  echo "CONFIG_PACKAGE_dnsmasq_full_dhcpv6=y" >> .config
+  echo "CONFIG_PACKAGE_dnsmasq_full_dnssec=y" >> .config
+  echo "CONFIG_PACKAGE_dnsmasq_full_auth=y" >> .config
+  echo "CONFIG_PACKAGE_dnsmasq_full_nftset=y" >> .config
+  echo "CONFIG_PACKAGE_dnsmasq_full_conntrack=y" >> .config
+  echo "CONFIG_PACKAGE_dnsmasq_full_noid=y" >> .config
+  echo "CONFIG_PACKAGE_dnsmasq_full_tftp=y" >> .config
 fi
