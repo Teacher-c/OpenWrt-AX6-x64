@@ -54,4 +54,6 @@ if [[ "$OWRT_URL" == "https://github.com/Teacher-c/openwrt-ipq.git" ]]; then
   echo "CONFIG_PACKAGE_dnsmasq_full_conntrack=y" >> .config
   echo "CONFIG_PACKAGE_dnsmasq_full_noid=y" >> .config
   echo "CONFIG_PACKAGE_dnsmasq_full_tftp=y" >> .config
+  sed -i '/mosdns/d' .config
+  sed -i '/openclash/d' .config
 fi
