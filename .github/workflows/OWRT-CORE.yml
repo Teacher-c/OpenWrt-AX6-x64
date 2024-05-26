@@ -122,6 +122,12 @@ jobs:
 
           fi
 
+          if [[ "$OWRT_TARGET" == *"Redmi-AX6-stock"* && "$OWRT_URL" == "https://github.com/TerryLip/AX6NSS.git" ]]; then
+          
+            cp -rf $GITHUB_WORKSPACE/general/AX6/luci-app-zerotier package/
+            
+          fi
+
       - name: Load custom feeds
         run: |
           cd ./owrt
