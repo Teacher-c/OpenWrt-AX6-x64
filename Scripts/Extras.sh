@@ -43,6 +43,7 @@ fi
 
 if [[ "$OWRT_URL" == "https://github.com/TerryLip/AX6NSS.git" ]]; then
   echo "CONFIG_PACKAGE_zerotier=y" >> .config
+  echo "CONFIG_PACKAGE_luci-i18n-zerotier-zh-cn=y" >> .config
   echo "CONFIG_PACKAGE_dnsmasq=n" >> .config
   echo "CONFIG_DEFAULT_dnsmasq-full=y" >> .config
   echo "CONFIG_PACKAGE_dnsmasq-full=y" >> .config
