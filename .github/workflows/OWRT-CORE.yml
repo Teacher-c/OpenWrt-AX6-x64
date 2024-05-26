@@ -200,7 +200,7 @@ jobs:
 
           fi
             
-          if [[ "$OWRT_TARGET" == "Redmi-AX6-stock-op" && "$OWRT_URL" == "https://github.com/Teacher-c/openwrt-ipq.git" ]]; then
+          if [[ "$OWRT_TARGET" == *"Redmi-AX6-stock"* && "$OWRT_URL" == "https://github.com/TerryLip/AX6NSS.git" ]]; then
           
             sed -i '/sqm_scripts_nss/d' feeds.conf.default
             
