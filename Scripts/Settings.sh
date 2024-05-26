@@ -42,9 +42,6 @@ if [[ "$OWRT_URL" == "https://github.com/TerryLip/AX6NSS.git" ]]; then
 
   #移除作者插件
   rm -rf package/new
-
-  #添加luci-app-zerotier
-  cp -rf $GITHUB_WORKSPACE/general/AX6/luci-app-zerotier package/
 fi
 
 #修改默认主题
