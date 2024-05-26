@@ -124,9 +124,7 @@ jobs:
 
           if [[ "$OWRT_TARGET" == *"Redmi-AX6-stock"* && "$OWRT_URL" == "https://github.com/TerryLip/AX6NSS.git" ]]; then
           
-            cp -rf $GITHUB_WORKSPACE/general/AX6/luci-app-zerotier package/
-            cp -rf $GITHUB_WORKSPACE/general/AX6/luci-app-autoreboot package/
-            cp -rf $GITHUB_WORKSPACE/general/AX6/luci-app-accesscontrol package/
+            echo 'skip'
             
           fi
 
@@ -211,6 +209,7 @@ jobs:
           if [[ "$OWRT_TARGET" == *"Redmi-AX6-stock"* && "$OWRT_URL" == "https://github.com/TerryLip/AX6NSS.git" ]]; then
           
             sed -i '/sqm_scripts_nss/d' feeds.conf.default
+            echo 'src-git imluci https://github.com/immortalwrt/luci.git' >> feeds.conf.default
             
           fi
           
