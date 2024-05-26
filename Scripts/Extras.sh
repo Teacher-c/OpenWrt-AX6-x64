@@ -41,7 +41,7 @@ if [[ "$OWRT_URL" == "https://github.com/padavanonly/immortalwrt.git" ]]; then
   echo "CONFIG_PACKAGE_luci-app-mwan3helper-chinaroute=n" >> .config
 fi
 
-if [[ "$OWRT_URL" == "https://github.com/Teacher-c/openwrt-ipq.git" ]]; then
+if [[ "$OWRT_URL" == "https://github.com/TerryLip/AX6NSS.git" ]]; then
   echo "CONFIG_PACKAGE_zerotier=y" >> .config
   echo "CONFIG_PACKAGE_dnsmasq=n" >> .config
   echo "CONFIG_DEFAULT_dnsmasq-full=y" >> .config
@@ -54,6 +54,4 @@ if [[ "$OWRT_URL" == "https://github.com/Teacher-c/openwrt-ipq.git" ]]; then
   echo "CONFIG_PACKAGE_dnsmasq_full_conntrack=y" >> .config
   echo "CONFIG_PACKAGE_dnsmasq_full_noid=y" >> .config
   echo "CONFIG_PACKAGE_dnsmasq_full_tftp=y" >> .config
-  sed -i '/mosdns/d' .config
-  sed -i '/openclash/d' .config
 fi
