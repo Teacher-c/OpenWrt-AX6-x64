@@ -31,7 +31,7 @@ if [[ "$OWRT_URL" == "https://github.com/DoveKi/immortalwrt-nss.git" ]]; then
 fi
 
 
-if [[ "$OWRT_URL" == "https://github.com/Teacher-c/openwrt-ipq.git" ]]; then
+if [[ "$OWRT_URL" == "https://github.com/TerryLip/AX6NSS.git" ]]; then
 
   #添加nss占用信息显示
   rm -rf feeds/luci/modules/luci-mod-status/htdocs/luci-static/resources/view/status/include/10_system.js
@@ -39,6 +39,9 @@ if [[ "$OWRT_URL" == "https://github.com/Teacher-c/openwrt-ipq.git" ]]; then
   cp -rf $GITHUB_WORKSPACE/general/AX6/nss-status/openwrt/10_system.js feeds/luci/modules/luci-mod-status/htdocs/luci-static/resources/view/status/include/
   cp -rf $GITHUB_WORKSPACE/general/AX6/nss-status/openwrt/luci-mod-status.json feeds/luci/modules/luci-mod-status/root/usr/share/rpcd/acl.d/
   #echo 'skip'
+
+  #移除作者插件
+  rm -rf package/new
 fi
 
 #修改默认主题
