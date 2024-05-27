@@ -171,6 +171,7 @@ jobs:
           if [[ "$OWRT_TARGET" == *"Redmi-AX6"* && "$OWRT_URL" == "https://github.com/TerryLip/AX6NSS.git" ]]; then
           
             sed -i '/sqm_scripts_nss/d' feeds.conf.default
+            echo 'src-git imluci https://github.com/immortalwrt/luci.git' >> feeds.conf.default
             
           fi
 
