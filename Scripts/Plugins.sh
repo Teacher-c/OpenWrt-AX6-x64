@@ -1,4 +1,5 @@
 #!/bin/bash
+#自定义单独下载仓库插件函数
 function git_sparse_package(){
     # 参数1是分支名,参数2是库地址。所有文件下载到当前路径./。
     # 同一个仓库下载多个文件夹直接在后面跟文件名或路径，空格分开。
@@ -15,7 +16,11 @@ function git_sparse_package(){
     mv -f "$@" "$rootdir"/"$localdir" && cd "$rootdir"
 }
 
-git_sparse_package master https://github.com/immortalwrt/luci applications/luci-app-accesscontrol applications/luci-app-autoreboot applications/luci-app-zerotier
+#添加immortal对应插件，luci-app-zerotier，luci-app-autoreboot，luci-app-accesscontrol
+
+if [[ "$OWRT_TARGET" == *"Redmi-AX6-stock"* && "$OWRT_URL" == "https://github.com/TerryLip/AX6NSS.git" ]]; then
+  git_sparse_package master https://github.com/immortalwrt/luci applications/luci-app-accesscontrol applications/luci-app-autoreboot applications/luci-app-zerotier
+fi
 
 #Argon Theme
 git clone --depth=1 --single-branch --branch $(echo $OWRT_URL | grep -Eiq "lede|padavanonly" && echo "18.06" || echo "master") https://github.com/jerrykuku/luci-theme-argon.git ./argon_theme
