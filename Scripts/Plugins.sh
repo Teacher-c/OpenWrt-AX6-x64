@@ -5,13 +5,12 @@ git clone --depth=1 --single-branch --branch $(echo $OWRT_URL | grep -Eiq "lede|
 #git clone --depth=1 --single-branch --branch $(echo $OWRT_URL | grep -Eiq "lede|padavanonly" && echo "18.06" || echo "master") https://github.com/jerrykuku/luci-app-argon-config.git
 
 #mosdns
-git clone https://github.com/sbwml/luci-app-mosdns -b v5 package/mosdns
-git clone https://github.com/sbwml/v2ray-geodata package/v2ray-geodata
+git clone https://github.com/sbwml/luci-app-mosdns -b v5 ./mosdns
+git clone https://github.com/sbwml/v2ray-geodata ./v2ray-geodata
 
 #修改mosdns.sh 支持更多去广告格式
 #删除空白行，删除！行，删除#行，删除||字符，删除^字符
-cd ./owrt/package/mosdns/luci-app-mosdns/root/usr/share/mosdns/
-sed -i 's/\\cp \$AD_TMPDIR\/\* \/etc\/mosdns\/rule\/adlist/sed -i '\''\/^\$\/d;\/^\!\/d;\/^#\/d;s\/\[||^]\/\/g'\'' \$AD_TMPDIR\/\* \&\& \\cp \$AD_TMPDIR\/\* \/etc\/mosdns\/rule\/adlist/' mosdns.sh
+sed -i 's/\\cp \$AD_TMPDIR\/\* \/etc\/mosdns\/rule\/adlist/sed -i '\''\/^\$\/d;\/^\!\/d;\/^#\/d;s\/\[||^]\/\/g'\'' \$AD_TMPDIR\/\* \&\& \\cp \$AD_TMPDIR\/\* \/etc\/mosdns\/rule\/adlist/' ./mosdns/luci-app-mosdns/root/usr/share/mosdns/mosdns.sh
 
 #Pass Wall
 #git clone --depth=1 --single-branch --branch "main" https://github.com/xiaorouji/openwrt-passwall.git ./pw_luci
