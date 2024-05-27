@@ -4,6 +4,7 @@
 rm -rf $(find feeds/luci/ -type d -regex ".*\(argon\|design\|mosdns\|v2ray-geodata\|passwall\|openclash\).*")
 rm -rf $(find feeds/packages/ -type d -regex ".*\(argon\|design\|mosdns\|v2ray-geodata\|passwall\|openclash\).*")
 rm -rf $(find feeds/imluci/ -type d -regex ".*\(argon\|design\|mosdns\|v2ray-geodata\|passwall\|openclash\).*")
+rm -rf $(find feeds/impackages/ -type d -regex ".*\(argon\|design\|mosdns\|v2ray-geodata\|passwall\|openclash\).*")
 rm -rf $(find feeds/smpackage/ -type d -regex ".*\(argon\|design\|mosdns\|v2ray-geodata\|passwall\|openclash\).*")
 rm -rf $(find feeds/smpackage/ -type d -regex ".*\(base-files\|dnsmasq\|firewall\|fullconenat\|libnftnl\|nftables\|ppp\|opkg\|ucl\|upx\|vsftpd-alt\|miniupnpd-iptables\|wireless-regdb\).*")
   
