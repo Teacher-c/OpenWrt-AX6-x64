@@ -1,7 +1,4 @@
-#
-# Automatically generated file; DO NOT EDIT.
-# OpenWrt Configuration
-#
+# Redmi-AX6
 # Select the target platform
 CONFIG_TARGET_qualcommax=y
 CONFIG_TARGET_qualcommax_ipq807x=y
