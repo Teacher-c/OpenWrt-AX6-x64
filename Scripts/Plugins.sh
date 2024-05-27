@@ -19,7 +19,10 @@ function git_sparse_package(){
 #添加immortal对应插件，luci-app-zerotier，luci-app-autoreboot，luci-app-accesscontrol
 
 if [[ "$OWRT_TARGET" == *"Redmi-AX6-stock"* && "$OWRT_URL" == "https://github.com/TerryLip/AX6NSS.git" ]]; then
-  git_sparse_package master https://github.com/immortalwrt/luci applications/luci-app-accesscontrol applications/luci-app-autoreboot applications/luci-app-zerotier
+  
+  #git_sparse_package master https://github.com/immortalwrt/luci applications/luci-app-accesscontrol applications/luci-app-autoreboot applications/luci-app-zerotier
+  echo ‘skip’
+  
 fi
 
 #Argon Theme
