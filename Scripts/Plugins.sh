@@ -1,4 +1,21 @@
 #!/bin/bash
+function git_sparse_package(){
+    # 参数1是分支名,参数2是库地址。所有文件下载到openwrt/package/openwrt-packages路径。
+    # 同一个仓库下载多个文件夹直接在后面跟文件名或路径，空格分开。
+    trap 'rm -rf "$tmpdir"' EXIT
+    branch="$1" curl="$2" && shift 2
+    rootdir="$PWD"
+    localdir=./
+    [ -d "$localdir" ] || mkdir -p "$localdir"
+    tmpdir="$(mktemp -d)" || exit 1
+    git clone -b "$branch" --depth 1 --filter=blob:none --sparse "$curl" "$tmpdir"
+    cd "$tmpdir"
+    git sparse-checkout init --cone
+    git sparse-checkout set "$@"
+    mv -f "$@" "$rootdir"/"$localdir" && cd "$rootdir"
+}
+
+git_sparse_package master https://github.com/immortalwrt/luci applications/luci-app-accesscontrol applications/luci-app-autoreboot applications/luci-app-zerotier
 
 #Argon Theme
 git clone --depth=1 --single-branch --branch $(echo $OWRT_URL | grep -Eiq "lede|padavanonly" && echo "18.06" || echo "master") https://github.com/jerrykuku/luci-theme-argon.git ./argon_theme
