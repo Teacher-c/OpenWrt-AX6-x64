@@ -84,7 +84,7 @@ jobs:
         run: |
           cd ./owrt
           
-          if [[ "$OWRT_TARGET" == "Redmi-AX6" && "$OWRT_URL" == "https://github.com/coolsnowwolf/lede.git" ]]; then
+          if [[ "$OWRT_TARGET" == *"Redmi-AX6"* && "$OWRT_URL" == "https://github.com/coolsnowwolf/lede.git" ]]; then
             
             # 因AX6无线驱动问题，暂时维持源码版本在20230501
             git reset --hard 26f3634631244eedfbdfd61ea6cc3a2d7f5d896f
@@ -104,10 +104,20 @@ jobs:
             
           fi
 
+          if [[ "$OWRT_TARGET" == *"Redmi-AX6"* && "$OWRT_URL" == "https://github.com/DoveKi/immortalwrt-nss.git" ]]; then
+            
+            echo 'skip'
+            
+          fi
+
+          if [[ "$OWRT_TARGET" == *"Redmi-AX6"* && "$OWRT_URL" == "https://github.com/TerryLip/AX6NSS.git" ]]; then
+          
+            echo 'skip'
+            
+          fi
+
           if [[ "$OWRT_TARGET" == "Xiaomi-CR6608" && "$OWRT_URL" == "https://github.com/immortalwrt/immortalwrt.git" ]]; then
             
-            #回退到2024.1.17
-            #git reset --hard 7772a67f190f18ec43a0e4db3dd6a1e7d0b52a1a
             
             echo 'skip'
 
@@ -115,24 +125,16 @@ jobs:
 
           if [[ "$OWRT_TARGET" == "Xiaomi-AC2100" && "$OWRT_URL" == "https://github.com/immortalwrt/immortalwrt.git" ]]; then
             
-            #回退到2024.1.17
-            #git reset --hard 7772a67f190f18ec43a0e4db3dd6a1e7d0b52a1a
             
             echo 'skip'
 
-          fi
-
-          if [[ "$OWRT_TARGET" == *"Redmi-AX6-stock"* && "$OWRT_URL" == "https://github.com/TerryLip/AX6NSS.git" ]]; then
-          
-            echo 'skip'
-            
           fi
 
       - name: Load custom feeds
         run: |
           cd ./owrt
           
-          if [[ "$OWRT_TARGET" == "Redmi-AX6" && "$OWRT_URL" == "https://github.com/coolsnowwolf/lede.git" ]]; then
+          if [[ "$OWRT_TARGET" == *"Redmi-AX6"* && "$OWRT_URL" == "https://github.com/coolsnowwolf/lede.git" ]]; then
           
             #编辑lede库源feeds.conf.default文件，删除lede的packages、routing、luci源，下面重新添加方便回滚版本
             
@@ -156,61 +158,34 @@ jobs:
             
           fi
 
-          if [[ "$OWRT_TARGET" == "Redmi-AX6-stock" && "$OWRT_URL" == "https://github.com/DoveKi/immortalwrt-nss.git" ]]; then
-            #回退到2024.4.30 merge office source
+          if [[ "$OWRT_TARGET" == *"Redmi-AX6"* && "$OWRT_URL" == "https://github.com/DoveKi/immortalwrt-nss.git" ]]; then
+          
             sed -i '/sqm_scripts_nss/d' feeds.conf.default
 
-            #sed -i '/packages/d' feeds.conf.default
+            #sed -i '/nss_packages/d' feeds.conf.default
+
+            #echo 'src-git nss_packages https://github.com/qosmio/nss-packages.git;NSS-12.4-K6.x' >> feeds.conf.default
             
-            #sed -i '/luci/d' feeds.conf.default
+          fi
 
-            #echo 'src-git packages https://github.com/immortalwrt/packages.git^7ad67420c6d67e789142f05dc28ed5151583cc47' >> feeds.conf.default
-
-            #echo 'src-git luci https://github.com/immortalwrt/luci.git^11f9385497dae5117ee8d9e35b2883d2905829f4' >> feeds.conf.default
-
-            #echo 'src-git luci https://github.com/Teacher-c/luci.git' >> feeds.conf.default
-
-            sed -i '/nss_packages/d' feeds.conf.default
-
-            echo 'src-git nss_packages https://github.com/qosmio/nss-packages.git;NSS-12.4-K6.x' >> feeds.conf.default
+          if [[ "$OWRT_TARGET" == *"Redmi-AX6"* && "$OWRT_URL" == "https://github.com/TerryLip/AX6NSS.git" ]]; then
+          
+            sed -i '/sqm_scripts_nss/d' feeds.conf.default
             
           fi
 
           if [[ "$OWRT_TARGET" == "Xiaomi-CR6608" && "$OWRT_URL" == "https://github.com/immortalwrt/immortalwrt.git" ]]; then
-            #回退到2024.1.17
-            
-            #sed -i '/luci/d' feeds.conf.default
-
-            #sed -i '/packages/d' feeds.conf.default
-
-            #echo 'src-git packages https://github.com/immortalwrt/packages.git^43578aaee96950bc9d4c3e05c28ced365147cf77' >> feeds.conf.default
-
-            #echo 'src-git luci https://github.com/immortalwrt/luci.git^1a895f6b8698d8c19f7948fc6be1b9eb443f5764' >> feeds.conf.default
 
             echo 'skip'
 
           fi
 
           if [[ "$OWRT_TARGET" == "Xiaomi-AC2100" && "$OWRT_URL" == "https://github.com/immortalwrt/immortalwrt.git" ]]; then
-            #回退到2024.1.17
-            
-            #sed -i '/luci/d' feeds.conf.default
-
-            #sed -i '/packages/d' feeds.conf.default
-
-            #echo 'src-git packages https://github.com/immortalwrt/packages.git^43578aaee96950bc9d4c3e05c28ced365147cf77' >> feeds.conf.default
-
-            #echo 'src-git luci https://github.com/immortalwrt/luci.git^1a895f6b8698d8c19f7948fc6be1b9eb443f5764' >> feeds.conf.default
-
+           
             echo 'skip'
 
           fi
             
-          if [[ "$OWRT_TARGET" == *"Redmi-AX6-stock"* && "$OWRT_URL" == "https://github.com/TerryLip/AX6NSS.git" ]]; then
-          
-            sed -i '/sqm_scripts_nss/d' feeds.conf.default
-            
-          fi
           
       - name: Update And Install Feeds
         run: |
@@ -237,7 +212,7 @@ jobs:
           
           cat $GITHUB_WORKSPACE/Config/$OWRT_TARGET.txt $GITHUB_WORKSPACE/Config/Del_Package.txt >> .config
           
-          if [[ "$OWRT_TARGET" == *"AX6"* || "$OWRT_TARGET" == *"X64"* ]]; then
+          if [[ "$OWRT_TARGET" == *"Redmi-AX6"* || "$OWRT_TARGET" == *"X64"* ]]; then
           
             cat $GITHUB_WORKSPACE/Config/Add_Package.txt >> .config
 
