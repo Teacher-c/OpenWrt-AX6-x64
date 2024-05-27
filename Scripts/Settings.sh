@@ -1,16 +1,12 @@
 #!/bin/bash
 
-#删除官方和第三方仓库argon,design主题,openclash,mosdns
-rm -rf $(find ./feeds/luci/ -type d -regex ".*\(argon\|design\|mosdns\|v2ray-geodata\|passwall\|openclash\).*")
-rm -rf $(find ./feeds/packages/ -type d -regex ".*\(argon\|design\|mosdns\|v2ray-geodata\|passwall\|openclash\).*")
-
-#如果引入smpackage库，则删除冲突插件和argon主题
-#rm -rf $(find ./feeds/smpackage/ -type d -regex ".*\(argon\|design\|mosdns\|v2ray-geodata\|passwall\|openclash\).*")
-
-#small-package推荐删除防止与lede库冲突，immortalwrt应该也是？
-#rm -rf ./feeds/smpackage/{base-files,dnsmasq,firewall*,fullconenat,libnftnl,nftables,ppp,opkg,ucl,upx,vsftpd-alt,miniupnpd-iptables,wireless-regdb}
+#删除冲突插件
+rm -rf $(find feeds/luci/ -type d -regex ".*\(argon\|design\|mosdns\|v2ray-geodata\|passwall\|openclash\).*")
+rm -rf $(find feeds/packages/ -type d -regex ".*\(argon\|design\|mosdns\|v2ray-geodata\|passwall\|openclash\).*")
+rm -rf $(find feeds/imluci/ -type d -regex ".*\(argon\|design\|mosdns\|v2ray-geodata\|passwall\|openclash\).*")
+rm -rf $(find feeds/smpackage/ -type d -regex ".*\(argon\|design\|mosdns\|v2ray-geodata\|passwall\|openclash\).*")
+rm -rf $(find feeds/smpackage/ -type d -regex ".*\(base-files\|dnsmasq\|firewall\|fullconenat\|libnftnl\|nftables\|ppp\|opkg\|ucl\|upx\|vsftpd-alt\|miniupnpd-iptables\|wireless-regdb\).*")
   
-
 if [[ "$OWRT_TARGET" == "Redmi-AX6" && "$OWRT_URL" == "https://github.com/coolsnowwolf/lede.git" ]]; then
   
   #修复SSR-Plus shadowsocksr-libev libopenssl-legacy 依赖错误问题。
@@ -29,7 +25,6 @@ if [[ "$OWRT_URL" == "https://github.com/DoveKi/immortalwrt-nss.git" ]]; then
   cp -rf $GITHUB_WORKSPACE/general/AX6/nss-status/immortal/luci-mod-status.json feeds/luci/modules/luci-mod-status/root/usr/share/rpcd/acl.d/
   #echo 'skip'
 fi
-
 
 if [[ "$OWRT_URL" == "https://github.com/TerryLip/AX6NSS.git" ]]; then
 
