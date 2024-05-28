@@ -31,7 +31,7 @@ echo "CONFIG_COLLECT_KERNEL_DEBUG=y" >> .config
 echo "CONFIG_KERNEL_PERF_EVENTS=y" >> .config
 #启用动态调试
 echo "CONFIG_KERNEL_DYNAMIC_DEBUG=y" >> .config
-启用 ARM 处理器上的性能监控单元，用于收集处理器性能数据
+#启用 ARM 处理器上的性能监控单元，用于收集处理器性能数据
 echo "CONFIG_KERNEL_ARM_PMU=y" >> .config
 #用于启用实验性功能
 echo "CONFIG_EXPERIMENTAL=y" >> .config
@@ -73,13 +73,13 @@ echo "CONFIG_PACKAGE_dnsmasq_full_tftp=y" >> .config
 echo "CONFIG_PACKAGE_luci-theme-$OWRT_THEME=y" >> .config
 #echo "CONFIG_PACKAGE_luci-app-$OWRT_THEME-config=y" >> .config
 
-#根据源码来修改
+#根据源码来修改 ，增加luci界面和luci中文包
 if [[ $OWRT_URL != *"lede"* ]] ; then
-  #增加luci界面
   echo "CONFIG_PACKAGE_luci=y" >> .config
   echo "CONFIG_LUCI_LANG_zh_Hans=y" >> .config
 fi
 
+#删除MT7621MTK硬件加速仓库默认软件
 if [[ "$OWRT_URL" == "https://github.com/padavanonly/immortalwrt.git" ]]; then
   echo "CONFIG_PACKAGE_zram-swap=n" >> .config
   echo "CONFIG_PACKAGE_miniupnpd=n" >> .config
