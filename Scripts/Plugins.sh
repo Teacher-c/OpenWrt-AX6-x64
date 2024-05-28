@@ -45,7 +45,7 @@ sed -i 's/\\cp \$AD_TMPDIR\/\* \/etc\/mosdns\/rule\/adlist/sed -i '\''\/^\$\/d;\
 #git clone --depth=1 https://github.com/fw876/helloworld.git ./helloworld
 
 #Open Clash
-git clone --depth=1 --single-branch --branch "dev" https://github.com/vernesong/OpenClash.git ./OpenClash
+git clone --depth=1 --single-branch --branch "master" https://github.com/vernesong/OpenClash.git ./OpenClash
 
 #预置OpenClash内核和GEO数据
 export CORE_VER=https://raw.githubusercontent.com/vernesong/OpenClash/core/master/core_version
