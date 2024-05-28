@@ -21,6 +21,19 @@ echo "CONFIG_PACKAGE_htop=y" >> .config
 echo "CONFIG_PACKAGE_bash=y" >> .config
 echo "CONFIG_PACKAGE_autocore=y" >> .config
 
+#配置dnsmasq-full
+echo "CONFIG_PACKAGE_dnsmasq=n" >> .config
+echo "CONFIG_DEFAULT_dnsmasq-full=y" >> .config
+echo "CONFIG_PACKAGE_dnsmasq-full=y" >> .config
+echo "CONFIG_PACKAGE_dnsmasq_full_dhcp=y" >> .config
+echo "CONFIG_PACKAGE_dnsmasq_full_dhcpv6=y" >> .config
+echo "CONFIG_PACKAGE_dnsmasq_full_dnssec=y" >> .config
+echo "CONFIG_PACKAGE_dnsmasq_full_auth=y" >> .config
+echo "CONFIG_PACKAGE_dnsmasq_full_nftset=y" >> .config
+echo "CONFIG_PACKAGE_dnsmasq_full_conntrack=y" >> .config
+echo "CONFIG_PACKAGE_dnsmasq_full_noid=y" >> .config
+echo "CONFIG_PACKAGE_dnsmasq_full_tftp=y" >> .config
+
 #增加主题
 echo "CONFIG_PACKAGE_luci-theme-$OWRT_THEME=y" >> .config
 #echo "CONFIG_PACKAGE_luci-app-$OWRT_THEME-config=y" >> .config
@@ -39,20 +52,4 @@ if [[ "$OWRT_URL" == "https://github.com/padavanonly/immortalwrt.git" ]]; then
   echo "CONFIG_PACKAGE_qos-scripts=n" >> .config
   echo "CONFIG_PACKAGE_luci-app-eqos-mtk=n" >> .config
   echo "CONFIG_PACKAGE_luci-app-mwan3helper-chinaroute=n" >> .config
-fi
-
-if [[ "$OWRT_URL" == "https://github.com/TerryLip/AX6NSS.git" ]]; then
-  echo "CONFIG_PACKAGE_zerotier=y" >> .config
-  echo "CONFIG_PACKAGE_luci-i18n-zerotier-zh-cn=y" >> .config
-  echo "CONFIG_PACKAGE_dnsmasq=n" >> .config
-  echo "CONFIG_DEFAULT_dnsmasq-full=y" >> .config
-  echo "CONFIG_PACKAGE_dnsmasq-full=y" >> .config
-  echo "CONFIG_PACKAGE_dnsmasq_full_dhcp=y" >> .config
-  echo "CONFIG_PACKAGE_dnsmasq_full_dhcpv6=y" >> .config
-  echo "CONFIG_PACKAGE_dnsmasq_full_dnssec=y" >> .config
-  echo "CONFIG_PACKAGE_dnsmasq_full_auth=y" >> .config
-  echo "CONFIG_PACKAGE_dnsmasq_full_nftset=y" >> .config
-  echo "CONFIG_PACKAGE_dnsmasq_full_conntrack=y" >> .config
-  echo "CONFIG_PACKAGE_dnsmasq_full_noid=y" >> .config
-  echo "CONFIG_PACKAGE_dnsmasq_full_tftp=y" >> .config
 fi
