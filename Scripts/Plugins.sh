@@ -45,13 +45,13 @@ sed -i 's/\\cp \$AD_TMPDIR\/\* \/etc\/mosdns\/rule\/adlist/sed -i '\''\/^\$\/d;\
 #git clone --depth=1 https://github.com/fw876/helloworld.git ./helloworld
 
 #Open Clash
-git clone --depth=1 --single-branch --branch "master" https://github.com/vernesong/OpenClash.git ./OpenClash
+git clone --depth=1 --single-branch --branch "dev" https://github.com/vernesong/OpenClash.git ./OpenClash
 
 #预置OpenClash内核和GEO数据
-export CORE_VER=https://raw.githubusercontent.com/vernesong/OpenClash/core/master/core_version
-export CORE_TUN=https://github.com/vernesong/OpenClash/raw/core/master/premium/clash-linux
-export CORE_DEV=https://github.com/vernesong/OpenClash/raw/core/master/dev/clash-linux
-export CORE_MATE=https://github.com/vernesong/OpenClash/raw/core/master/meta/clash-linux
+export CORE_VER=https://raw.githubusercontent.com/vernesong/OpenClash/core/dev/core_version
+export CORE_TUN=https://github.com/vernesong/OpenClash/raw/core/dev/premium/clash-linux
+export CORE_DEV=https://github.com/vernesong/OpenClash/raw/core/dev/dev/clash-linux
+export CORE_MATE=https://github.com/vernesong/OpenClash/raw/core/dev/meta/clash-linux
 
 export CORE_TYPE=$(echo $OWRT_TARGET | grep -Eiq "64|86" && echo "amd64" || echo "arm64")
 export TUN_VER=$(curl -sfL $CORE_VER | sed -n "2{s/\r$//;p;q}")
