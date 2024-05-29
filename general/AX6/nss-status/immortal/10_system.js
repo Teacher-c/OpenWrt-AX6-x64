@@ -106,9 +106,8 @@ return baseclass.extend({
 				systeminfo.load[2] / 65535.0
 			) : null,
 			//_('CPU usage (%)'),    cpuusage.cpuusage,
-			_('CPU usage (%)'),    'CPU: ' + cpuusage.cpuusage + ', ' + 'NSS: ' + (L.isObject(nssinfo) ? '%s, %s'.format(nssinfo.avg, nssinfo.max) : null)
+			_('CPU usage (%)'),    'CPU: ' + cpuusage.cpuusage + ', ' + 'NSS: ' + (L.isObject(nssinfo) ? '%s'.format(nssinfo.avg) : null)
 			//_('NSS Load'),         (L.isObject(nssinfo) ? 'Min: %s Avg: %s Max: %s'.format(nssinfo.min nssinfo.avg, nssinfo.max) : null)
-			//_('NSS'),              (L.isObject(nssinfo) ? '%s'.format(nssinfo.avg) : null)
 		];
 
 		if (tempinfo.tempinfo) {
