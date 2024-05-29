@@ -5,5 +5,5 @@ CONFIG_TARGET_ramips_mt7621=y
 CONFIG_TARGET_ramips_mt7621_DEVICE_xiaomi_mi-router-ac2100=y
 #启用目标选项配置指定特定的编译器和链接器选项
 CONFIG_TARGET_OPTIONS=y
-CONFIG_TARGET_OPTIMIZATION="-O3 -pipe -mtune=24kc -march=24kc"
+CONFIG_TARGET_OPTIMIZATION="-O3 -pipe"
 
