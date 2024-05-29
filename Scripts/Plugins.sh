@@ -46,6 +46,7 @@ sed -i 's/\\cp \$AD_TMPDIR\/\* \/etc\/mosdns\/rule\/adlist/sed -i '\''\/^\$\/d;\
 
 #Open Clash
 git clone --depth=1 --single-branch --branch "dev" https://github.com/vernesong/OpenClash.git ./OpenClash
+sed -i 's|mv /tmp/china_domains.list|sed -i '"'"'s/114.114.114.114/223.5.5.5/g'"'"' /tmp/china_domains.list \&\& mv /tmp/china_domains.list|' ./OpenClash/luci-app-openclash/root/usr/share/openclash/openclash_chnroute.sh
 
 #预置OpenClash内核和GEO数据
 export CORE_VER=https://raw.githubusercontent.com/vernesong/OpenClash/core/dev/core_version
