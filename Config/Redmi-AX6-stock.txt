@@ -1,4 +1,8 @@
 #Redmi-AX6
+# Compiler Optimization
+#启用目标选项配置指定特定的编译器和链接器选项
+#CONFIG_TARGET_OPTIONS=y
+#CONFIG_TARGET_OPTIMIZATION="-O3 -pipe -mcpu=cortex-a53+crypto+crc"
 # Select the target platform
 CONFIG_TARGET_qualcommax=y
 CONFIG_TARGET_qualcommax_ipq807x=y
@@ -8,10 +12,6 @@ CONFIG_PACKAGE_ath10k-board-qca9887=n
 CONFIG_PACKAGE_ath10k-firmware-qca9887-ct=n
 CONFIG_PACKAGE_kmod-ath10k-ct-smallbuffers=n
 CONFIG_ATH10K-CT_LEDS=n
-# Compiler Optimization
-#启用目标选项配置指定特定的编译器和链接器选项
-CONFIG_TARGET_OPTIONS=y
-CONFIG_TARGET_OPTIMIZATION="-O3 -pipe -mcpu=cortex-a53+crypto+crc"
 # NSS related base
 CONFIG_NSS_MEM_PROFILE_MEDIUM=y
 CONFIG_ATH11K_MEM_PROFILE_512M=y
