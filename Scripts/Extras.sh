@@ -35,7 +35,7 @@ echo "CONFIG_KERNEL_DYNAMIC_DEBUG=y" >> .config
 echo "CONFIG_KERNEL_ARM_PMU=y" >> .config
 #启用了一系列用于开发和调试的特性和功能
 echo "CONFIG_DEVEL=y" >> .config
-启用 ccache 工具进行编译时的缓存，加快编译速度
+#启用 ccache 工具进行编译时的缓存，加快编译速度
 echo "CONFIG_CCACHE=y" >> .config
 #虚构的配置选项？可能会涉及与专利相关的一些特性
 echo "CONFIG_BUILD_PATENTED=y" >> .config
