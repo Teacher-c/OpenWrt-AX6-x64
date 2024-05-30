@@ -70,7 +70,6 @@ CONFIG_PACKAGE_kmod-qca-nss-drv-mirror=y
 CONFIG_PACKAGE_kmod-qca-nss-drv-mscs=y
 CONFIG_PACKAGE_kmod-qca-nss-drv-wifi-meshmgr=y
 #NSS Build Options
-CONFIG_NSS_MEM_PROFILE_MEDIUM=y
 CONFIG_NSS_DRV_BRIDGE_ENABLE=y
 CONFIG_NSS_DRV_CAPWAP_ENABLE=y
 CONFIG_NSS_DRV_C2C_ENABLE=y
