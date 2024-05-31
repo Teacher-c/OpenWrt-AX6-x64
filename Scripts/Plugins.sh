@@ -25,6 +25,14 @@ if [[ "$OWRT_TARGET" == *"Redmi-AX6-stock"* && "$OWRT_URL" == "https://github.co
   
 fi
 
+if [[ "$OWRT_TARGET" == *"CR6608"* && "$OWRT_URL" == "https://github.com/padavanonly/immortalwrt.git" ]]; then
+  
+  git_sparse_package master https://github.com/immortalwrt/luci applications/luci-app-zerotier
+  git_sparse_package master https://github.com/immortalwrt/packages net/zerotier
+  echo ‘skip’
+  
+fi
+
 #Argon Theme
 git clone --depth=1 --single-branch --branch $(echo $OWRT_URL | grep -Eiq "lede|padavanonly" && echo "18.06" || echo "master") https://github.com/jerrykuku/luci-theme-argon.git
 #git clone --depth=1 --single-branch --branch $(echo $OWRT_URL | grep -Eiq "lede|padavanonly" && echo "18.06" || echo "master") https://github.com/jerrykuku/luci-app-argon-config.git
