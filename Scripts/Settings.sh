@@ -42,6 +42,43 @@ if [[ "$OWRT_URL" == "https://github.com/TerryLip/AX6NSS.git" ]]; then
   rm -rf package/new
 fi
 
+#自定义单独下载仓库插件函数
+function git_sparse_package(){
+    # 参数1是分支名,参数2是库地址。所有文件下载到owrt/package/Add_package
+    # 同一个仓库下载多个文件夹直接在后面跟文件名或路径，空格分开。
+    trap 'rm -rf "$tmpdir"' EXIT
+    branch="$1" curl="$2" && shift 2
+    rootdir="$PWD"
+    localdir=owrt/package/Add_package
+    [ -d "$localdir" ] || mkdir -p "$localdir"
+    tmpdir="$(mktemp -d)" || exit 1
+    git clone -b "$branch" --depth 1 --filter=blob:none --sparse "$curl" "$tmpdir"
+    cd "$tmpdir"
+    git sparse-checkout init --cone
+    git sparse-checkout set "$@"
+    mv -f "$@" "$rootdir"/"$localdir" && cd "$rootdir"
+}
+
+#添加immortal对应插件
+
+if [[ "$OWRT_TARGET" == *"Redmi-AX6-stock"* && "$OWRT_URL" == "https://github.com/TerryLip/AX6NSS.git" ]]; then
+  
+  #git_sparse_package master https://github.com/immortalwrt/luci applications/luci-app-zerotier
+  echo ‘skip’
+  
+fi
+
+if [[ "$OWRT_TARGET" == *"CR6608"* && "$OWRT_URL" == "https://github.com/padavanonly/immortalwrt.git" ]]; then
+  
+  git_sparse_package master https://github.com/immortalwrt/luci applications/luci-app-zerotier
+  git_sparse_package master https://github.com/immortalwrt/packages net/zerotier
+  echo ‘skip’
+  rm -rf $(find feeds/luci/ -type d -regex ".*\(luci-app-zerotier\).*")
+  rm -rf $(find package/net/ -type d -regex ".*\(zerotier\).*")
+  mv -rf package/Add_package/zerotier package/net/
+  mv -rf package/Add_package/luci-app-zerotier feeds/luci/
+fi
+
 #修改默认主题
 sed -i "s/luci-theme-bootstrap/luci-theme-$OWRT_THEME/g" $(find ./feeds/luci/collections/ -type f -name "Makefile")
 #修改默认IP地址
