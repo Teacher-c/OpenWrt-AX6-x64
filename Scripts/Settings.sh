@@ -49,7 +49,7 @@ function git_sparse_package(){
     trap 'rm -rf "$tmpdir"' EXIT
     branch="$1" curl="$2" && shift 2
     rootdir="$PWD"
-    localdir=owrt/package/Add_package
+    localdir=package/Add_package
     [ -d "$localdir" ] || mkdir -p "$localdir"
     tmpdir="$(mktemp -d)" || exit 1
     git clone -b "$branch" --depth 1 --filter=blob:none --sparse "$curl" "$tmpdir"
