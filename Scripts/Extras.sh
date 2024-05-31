@@ -82,8 +82,8 @@ fi
 #删除MT7621MTK硬件加速仓库默认软件
 if [[ "$OWRT_URL" == "https://github.com/padavanonly/immortalwrt.git" ]]; then
   echo "CONFIG_PACKAGE_zram-swap=n" >> .config
-  echo "CONFIG_PACKAGE_miniupnpd=n" >> .config
-  echo "CONFIG_PACKAGE_luci-app-upnp=n" >> .config
+  #echo "CONFIG_PACKAGE_miniupnpd=n" >> .config
+  #echo "CONFIG_PACKAGE_luci-app-upnp=n" >> .config
   echo "CONFIG_PACKAGE_qos-scripts=n" >> .config
   echo "CONFIG_PACKAGE_luci-app-eqos-mtk=n" >> .config
   echo "CONFIG_PACKAGE_luci-app-mwan3helper-chinaroute=n" >> .config
