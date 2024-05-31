@@ -28,8 +28,8 @@ export CORE_TUN=https://github.com/vernesong/OpenClash/raw/core/dev/premium/clas
 export CORE_DEV=https://github.com/vernesong/OpenClash/raw/core/dev/dev/clash-linux
 export CORE_MATE=https://github.com/vernesong/OpenClash/raw/core/dev/meta/clash-linux
 
-#export CORE_TYPE=$(echo $OWRT_TARGET | grep -Eiq "64|86" && echo "amd64" || echo "arm64")
-export CORE_TYPE=$(echo $OWRT_TARGET | grep -Eiq "CR6608|AC2100" && echo "mipsle-softfloat" || echo $OWRT_TARGET | grep -Eiq "64|86" && echo "amd64" || echo $OWRT_TARGET | grep -Eiq "Redmi-AX6" && echo "arm64")
+export CORE_TYPE=$(echo $OWRT_TARGET | grep -Eiq "64|86" && echo "amd64" || echo "arm64")
+#export CORE_TYPE=$(echo $OWRT_TARGET | grep -Eiq "CR6608|AC2100" && echo "mipsle-softfloat" || echo $OWRT_TARGET | grep -Eiq "64|86" && echo "amd64" || echo $OWRT_TARGET | grep -Eiq "Redmi-AX6" && echo "arm64")
 export TUN_VER=$(curl -sfL $CORE_VER | sed -n "2{s/\r$//;p;q}")
 
 export GEO_MMDB=https://github.com/alecthw/mmdb_china_ip_list/raw/release/lite/Country.mmdb
