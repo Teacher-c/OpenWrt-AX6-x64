@@ -63,7 +63,7 @@ function git_sparse_package(){
 
 if [[ "$OWRT_TARGET" == *"Redmi-AX6-stock"* && "$OWRT_URL" == "https://github.com/TerryLip/AX6NSS.git" ]]; then
   
-  #git_sparse_package master https://github.com/immortalwrt/luci applications/luci-app-zerotier
+  git_sparse_package master https://github.com/immortalwrt/luci applications/luci-app-zerotier
   echo ‘skip’
   
 fi
@@ -72,11 +72,12 @@ if [[ "$OWRT_TARGET" == *"CR6608"* && "$OWRT_URL" == "https://github.com/padavan
   
   git_sparse_package master https://github.com/immortalwrt/luci applications/luci-app-zerotier
   git_sparse_package master https://github.com/immortalwrt/packages net/zerotier
-  echo ‘skip’
   rm -rf $(find feeds/luci/applications -type d -regex ".*\(luci-app-zerotier\).*")
   rm -rf $(find feeds/packages/net/ -type d -regex ".*\(zerotier\).*")
   mv package/Add_package/zerotier feeds/packages/net/
   mv package/Add_package/luci-app-zerotier feeds/luci/applications
+  echo ‘skip’
+  
 fi
 
 #修改默认主题
