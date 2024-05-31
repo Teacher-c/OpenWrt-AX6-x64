@@ -73,10 +73,10 @@ if [[ "$OWRT_TARGET" == *"CR6608"* && "$OWRT_URL" == "https://github.com/padavan
   git_sparse_package master https://github.com/immortalwrt/luci applications/luci-app-zerotier
   git_sparse_package master https://github.com/immortalwrt/packages net/zerotier
   echo ‘skip’
-  rm -rf $(find feeds/luci/ -type d -regex ".*\(luci-app-zerotier\).*")
-  rm -rf $(find package/net/ -type d -regex ".*\(zerotier\).*")
-  mv -rf package/Add_package/zerotier package/net/
-  mv -rf package/Add_package/luci-app-zerotier feeds/luci/
+  rm -rf $(find feeds/luci/applications -type d -regex ".*\(luci-app-zerotier\).*")
+  rm -rf $(find feeds/packages/net/ -type d -regex ".*\(zerotier\).*")
+  mv package/Add_package/zerotier feeds/packages/net/
+  mv package/Add_package/luci-app-zerotier feeds/luci/applications
 fi
 
 #修改默认主题
