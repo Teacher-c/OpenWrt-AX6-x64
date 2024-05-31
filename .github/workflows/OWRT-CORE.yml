@@ -214,7 +214,7 @@ jobs:
           
           cat $GITHUB_WORKSPACE/Config/$OWRT_TARGET.txt $GITHUB_WORKSPACE/Config/Del_Package.txt >> .config
           
-          if [[ "$OWRT_TARGET" == *"Redmi-AX6"* || "$OWRT_TARGET" == *"X64"*  || "$OWRT_TARGET" == *"CR6608"* ]]; then
+          if [[ "$OWRT_TARGET" == *"Redmi-AX6"* || "$OWRT_TARGET" == *"X64"* || "$OWRT_TARGET" == *"CR6608"* ]]; then
           
             cat $GITHUB_WORKSPACE/Config/Add_Package.txt >> .config
 
