@@ -1,38 +1,4 @@
 #!/bin/bash
-#自定义单独下载仓库插件函数
-function git_sparse_package(){
-    # 参数1是分支名,参数2是库地址。所有文件下载到当前路径./Add_package。
-    # 同一个仓库下载多个文件夹直接在后面跟文件名或路径，空格分开。
-    trap 'rm -rf "$tmpdir"' EXIT
-    branch="$1" curl="$2" && shift 2
-    rootdir="$PWD"
-    localdir=./Add_package
-    [ -d "$localdir" ] || mkdir -p "$localdir"
-    tmpdir="$(mktemp -d)" || exit 1
-    git clone -b "$branch" --depth 1 --filter=blob:none --sparse "$curl" "$tmpdir"
-    cd "$tmpdir"
-    git sparse-checkout init --cone
-    git sparse-checkout set "$@"
-    mv -f "$@" "$rootdir"/"$localdir" && cd "$rootdir"
-}
-
-#添加immortal对应插件，luci-app-zerotier，luci-app-autoreboot，luci-app-accesscontrol
-
-if [[ "$OWRT_TARGET" == *"Redmi-AX6-stock"* && "$OWRT_URL" == "https://github.com/TerryLip/AX6NSS.git" ]]; then
-  
-  #git_sparse_package master https://github.com/immortalwrt/luci applications/luci-app-accesscontrol applications/luci-app-autoreboot applications/luci-app-zerotier
-  echo ‘skip’
-  
-fi
-
-if [[ "$OWRT_TARGET" == *"CR6608"* && "$OWRT_URL" == "https://github.com/padavanonly/immortalwrt.git" ]]; then
-  
-  git_sparse_package master https://github.com/immortalwrt/luci applications/luci-app-zerotier
-  git_sparse_package master https://github.com/immortalwrt/packages net/zerotier
-  echo ‘skip’
-  
-fi
-
 #Argon Theme
 git clone --depth=1 --single-branch --branch $(echo $OWRT_URL | grep -Eiq "lede|padavanonly" && echo "18.06" || echo "master") https://github.com/jerrykuku/luci-theme-argon.git
 #git clone --depth=1 --single-branch --branch $(echo $OWRT_URL | grep -Eiq "lede|padavanonly" && echo "18.06" || echo "master") https://github.com/jerrykuku/luci-app-argon-config.git
