@@ -25,6 +25,7 @@ if [[ "$OWRT_URL" == "https://github.com/DoveKi/immortalwrt-nss.git" ]]; then
   #cp -rf $GITHUB_WORKSPACE/general/AX6/nss-status/immortal/10_system.js feeds/luci/modules/luci-mod-status/htdocs/luci-static/resources/view/status/include/
   #cp -rf $GITHUB_WORKSPACE/general/AX6/nss-status/immortal/luci-mod-status.json feeds/luci/modules/luci-mod-status/root/usr/share/rpcd/acl.d/
   echo 'skip'
+  
 fi
 
 if [[ "$OWRT_URL" == "https://github.com/TerryLip/AX6NSS.git" ]]; then
@@ -64,18 +65,16 @@ function git_sparse_package(){
 if [[ "$OWRT_TARGET" == *"Redmi-AX6-stock"* && "$OWRT_URL" == "https://github.com/TerryLip/AX6NSS.git" ]]; then
   
   git_sparse_package master https://github.com/immortalwrt/luci applications/luci-app-zerotier
+  mv package/Add_package/luci-app-zerotier feeds/luci/applications
   echo ‘skip’
   
 fi
 
 if [[ "$OWRT_TARGET" == *"CR6608"* && "$OWRT_URL" == "https://github.com/padavanonly/immortalwrt.git" ]]; then
   
-  git_sparse_package master https://github.com/immortalwrt/luci applications/luci-app-zerotier
   git_sparse_package master https://github.com/immortalwrt/packages net/zerotier
-  rm -rf $(find feeds/luci/applications -type d -regex ".*\(luci-app-zerotier\).*")
   rm -rf $(find feeds/packages/net/ -type d -regex ".*\(zerotier\).*")
   mv package/Add_package/zerotier feeds/packages/net/
-  mv package/Add_package/luci-app-zerotier feeds/luci/applications
   echo ‘skip’
   
 fi
