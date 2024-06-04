@@ -88,6 +88,15 @@ if [[ "$OWRT_TARGET" == *"AC2100"* && "$OWRT_URL" == "https://github.com/padavan
   
 fi
 
+if [[ "$OWRT_TARGET" == *"Redmi-AX6"* && "$OWRT_URL" == "https://github.com/coolsnowwolf/lede.git" ]]; then
+  
+  git_sparse_package master https://github.com/immortalwrt/packages net/zerotier
+  rm -rf $(find feeds/packages/net/ -type d -regex ".*\(zerotier\).*")
+  mv package/Add_package/zerotier feeds/packages/net/
+  echo ‘skip’
+  
+fi
+
 #修改默认主题
 sed -i "s/luci-theme-bootstrap/luci-theme-$OWRT_THEME/g" $(find ./feeds/luci/collections/ -type f -name "Makefile")
 #修改默认IP地址
