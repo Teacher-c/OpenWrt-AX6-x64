@@ -87,20 +87,22 @@ jobs:
           if [[ "$OWRT_TARGET" == *"Redmi-AX6"* && "$OWRT_URL" == "https://github.com/coolsnowwolf/lede.git" ]]; then
             
             # 因AX6无线驱动问题，暂时维持源码版本在20230501
-            git reset --hard 26f3634631244eedfbdfd61ea6cc3a2d7f5d896f
+            #git reset --hard 26f3634631244eedfbdfd61ea6cc3a2d7f5d896f
             
             # 重新添加支持AX6机型
-            cp -rf $GITHUB_WORKSPACE/general/AX6/target/linux/ipq807x/image/generic.mk target/linux/ipq807x/image/
+            #cp -rf $GITHUB_WORKSPACE/general/AX6/target/linux/ipq807x/image/generic.mk target/linux/ipq807x/image/
 
             # 补丁qca-nss-ecm-bonding-error
-            cp -rf $GITHUB_WORKSPACE/general/AX6/qca-nss-ecm-bonding-error/Makefile package/qca/nss/qca-nss-clients-64/
+            #cp -rf $GITHUB_WORKSPACE/general/AX6/qca-nss-ecm-bonding-error/Makefile package/qca/nss/qca-nss-clients-64/
             
-            cp -rf $GITHUB_WORKSPACE/general/AX6/qca-nss-ecm-bonding-error/606-qca-nss-ecm-bonding-add-bond_get_id.patch target/linux/ipq807x/patches-5.10/
+            #cp -rf $GITHUB_WORKSPACE/general/AX6/qca-nss-ecm-bonding-error/606-qca-nss-ecm-bonding-add-bond_get_id.patch target/linux/ipq807x/patches-5.10/
             
-            cp -rf $GITHUB_WORKSPACE/general/AX6/qca-nss-ecm-bonding-error/607-qca-nss-ecm-Add-bridge-join-and-leave-netdev-cmds.patch target/linux/ipq807x/patches-5.10/
+            #cp -rf $GITHUB_WORKSPACE/general/AX6/qca-nss-ecm-bonding-error/607-qca-nss-ecm-Add-bridge-join-and-leave-netdev-cmds.patch target/linux/ipq807x/patches-5.10/
 
             #移除shortcut-fe
             #rm -rf package/lean/shortcut-fe
+
+            echo 'skip'
             
           fi
 
@@ -138,20 +140,20 @@ jobs:
           
             #编辑lede库源feeds.conf.default文件，删除lede的packages、routing、luci源，下面重新添加方便回滚版本
             
-            sed -i '/packages/d' feeds.conf.default
+            #sed -i '/packages/d' feeds.conf.default
             
-            sed -i '/luci/d' feeds.conf.default
+            #sed -i '/luci/d' feeds.conf.default
             
-            sed -i '/routing/d' feeds.conf.default
+            #sed -i '/routing/d' feeds.conf.default
 
             #重新添加lede的packages,回退到2024.01.18
-            echo 'src-git packages https://github.com/coolsnowwolf/packages^d930ab31586ea9fc40e871786c027120fc57c716' >> feeds.conf.default
+            #echo 'src-git packages https://github.com/coolsnowwolf/packages^d930ab31586ea9fc40e871786c027120fc57c716' >> feeds.conf.default
 
             #重新添加lede的luci，回退到2024.01.15
-            echo 'src-git luci https://github.com/coolsnowwolf/luci^f45ed56c5a6938f4a585b21596decfa905bc62dc' >> feeds.conf.default
+            #echo 'src-git luci https://github.com/coolsnowwolf/luci^f45ed56c5a6938f4a585b21596decfa905bc62dc' >> feeds.conf.default
 
             #重新添加lede的routing，回退到2022.12.15
-            echo 'src-git routing https://github.com/coolsnowwolf/routing^160eae1216c166153f1c0d303f41f33ca0032c2c' >> feeds.conf.default
+            #echo 'src-git routing https://github.com/coolsnowwolf/routing^160eae1216c166153f1c0d303f41f33ca0032c2c' >> feeds.conf.default
 
             #kenzok8的small-package库插入到第一行，回退到2024.01.18避免ssr-plus编译失败，暂时不需要该仓库
             #sed -i '1i\src-git smpackage https://github.com/kenzok8/small-package^154af743a2d695030591c1d69f65a710628d8555' feeds.conf.default
