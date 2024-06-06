@@ -1,8 +1,9 @@
 #Redmi AX6
 # Select the target platform
-CONFIG_TARGET_ipq807x=y
-CONFIG_TARGET_ipq807x_generic=y
-CONFIG_TARGET_ipq807x_generic_DEVICE_redmi_ax6=y
+# Select the target platform
+CONFIG_TARGET_qualcommax=y
+CONFIG_TARGET_qualcommax_ipq807x=y
+CONFIG_TARGET_qualcommax_ipq807x_DEVICE_redmi_ax6=y
 # Disable Ath10k 
 CONFIG_PACKAGE_ath10k-board-qca9887=n
 CONFIG_PACKAGE_ath10k-firmware-qca9887-ct=n
