@@ -157,6 +157,8 @@ jobs:
 
             #kenzok8的small-package库插入到第一行，回退到2024.01.18避免ssr-plus编译失败，暂时不需要该仓库
             #sed -i '1i\src-git smpackage https://github.com/kenzok8/small-package^154af743a2d695030591c1d69f65a710628d8555' feeds.conf.default
+
+            echo 'skip'
             
           fi
 
