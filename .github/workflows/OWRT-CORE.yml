@@ -112,6 +112,12 @@ jobs:
             
           fi
 
+          if [[ "$OWRT_TARGET" == *"Redmi-AX6"* && "$OWRT_URL" == "https://github.com/Teacher-c/immortalwrt-NSS.git" ]]; then
+            
+            echo 'skip'
+            
+          fi
+
           if [[ "$OWRT_TARGET" == *"Redmi-AX6"* && "$OWRT_URL" == "https://github.com/TerryLip/AX6NSS.git" ]]; then
           
             echo 'skip'
@@ -167,6 +173,13 @@ jobs:
             sed -i '/sqm_scripts_nss/d' feeds.conf.default
             
           fi
+
+          if [[ "$OWRT_TARGET" == *"Redmi-AX6"* && "$OWRT_URL" == "https://github.com/Teacher-c/immortalwrt-NSS.git" ]]; then
+          
+            sed -i '/sqm_scripts_nss/d' feeds.conf.default
+            
+          fi
+
 
           if [[ "$OWRT_TARGET" == *"Redmi-AX6"* && "$OWRT_URL" == "https://github.com/TerryLip/AX6NSS.git" ]]; then
           
