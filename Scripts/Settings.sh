@@ -64,8 +64,8 @@ function git_sparse_package(){
 
 if [[ "$OWRT_TARGET" == *"Redmi-AX6-stock"* && "$OWRT_URL" == "https://github.com/TerryLip/AX6NSS.git" ]]; then
   
-  git_sparse_package master https://github.com/immortalwrt/luci applications/luci-app-zerotier
-  mv package/Add_package/luci-app-zerotier feeds/luci/applications
+  #git_sparse_package master https://github.com/immortalwrt/luci applications/luci-app-zerotier
+  #mv package/Add_package/luci-app-zerotier feeds/luci/applications
   echo ‘skip’
   
 fi
