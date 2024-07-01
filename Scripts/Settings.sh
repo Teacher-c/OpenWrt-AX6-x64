@@ -39,6 +39,19 @@ if [[ "$OWRT_URL" == "https://github.com/Teacher-c/immortalwrt-NSS.git" ]]; then
   
 fi
 
+if [[ "$OWRT_URL" == "https://github.com/Teacher-c/openwrt-NSS.git" ]]; then
+  
+  #添加CPU,温度，以及nss占用信息显示
+  #rm -rf feeds/luci/modules/luci-mod-status/htdocs/luci-static/resources/view/status/include/10_system.js
+  #rm -rf feeds/luci/modules/luci-mod-status/root/usr/share/rpcd/acl.d/luci-mod-status.json
+  #rm -rf feeds/luci/modules/luci-base/root/usr/share/rpcd/ucode/luci
+  #cp -rf $GITHUB_WORKSPACE/general/AX6/nss-status/immortal/10_system.js feeds/luci/modules/luci-mod-status/htdocs/luci-static/resources/view/status/include/
+  #cp -rf $GITHUB_WORKSPACE/general/AX6/nss-status/immortal/luci-mod-status.json feeds/luci/modules/luci-mod-status/root/usr/share/rpcd/acl.d/
+  #cp -rf $GITHUB_WORKSPACE/general/AX6/nss-status/luci_file_from_immortal/luci feeds/luci/modules/luci-base/root/usr/share/rpcd/ucode/
+  echo 'skip'
+  
+fi
+
 if [[ "$OWRT_URL" == "https://github.com/TerryLip/AX6NSS.git" ]]; then
 
   #添加CPU,温度，以及nss占用信息显示
